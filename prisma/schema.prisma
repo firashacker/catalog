@@ -1,0 +1,55 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           Int      @id @default(autoincrement())
+  createdAt    DateTime @default(now())
+  updatesAt    DateTime @updatedAt
+  isAdmin      Boolean  @default(false)
+  username     String   @unique
+  password     String
+  refreshtoken String   @default("")
+}
+
+model Categories {
+  id       Int        @id @default(autoincrement())
+  name     String     @unique
+  Products Products[]
+}
+
+model Products {
+  id           Int         @id @default(autoincrement())
+  listed       Boolean     @default(true)
+  title        String
+  description  String?
+  price        Float?
+  image        String
+  Categories   Categories? @relation(fields: [categoriesId], references: [id])
+  categoriesId Int?
+  orders       Orders[]
+}
+
+model ProductsOrders {
+  id         Int      @id @default(autoincrement())
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  shippped   Boolean  @default(false)
+  totalPrice Float
+  orders     Orders[]
+}
+
+model Orders {
+  id        Int            @id @default(autoincrement())
+  UserOrder ProductsOrders @relation(fields: [orderId], references: [id])
+  orderId   Int
+  product   Products?      @relation(fields: [productId], references: [id])
+  productId Int?
+  quantity  Int            @default(1)
+}
