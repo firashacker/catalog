@@ -1,7 +1,8 @@
 const express = require("express");
 const app = express();
 const port = 4000;
-const publicDir = "app/dist";
+const publicDirs = ["uploaded", "app/dist"];
+const mainIndex = `${publicDirs[1]}/index.html`;
 const bodyParser = require("body-parser");
 const multer = require("multer");
 const fs = require("fs");
@@ -11,7 +12,7 @@ const cookieParser = require("cookie-parser");
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    const uploadDir = path.join(__dirname, "app/dist/images");
+    const uploadDir = path.join(__dirname, `${publicDirs[0]}/images`);
     // Check if the directory exists, and create it if it doesn't.
     fs.mkdir(uploadDir, { recursive: true }, (err) => {
       if (err) {
@@ -35,7 +36,7 @@ app.use(bodyParser.json(), cookieParser());
 
 // Enable CORS (Cross-Origin Resource Sharing) - Allowing requests from the frontend
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:5173");
+  res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
   res.header("Access-Control-Allow-Credentials", "true");
@@ -329,14 +330,18 @@ app.post("/api/image", verify, upload, (req, res) => {
 
 const path = require("path");
 const { setTimeout } = require("timers");
-app.use(express.static(path.join(__dirname, publicDir)));
+
+publicDirs.map((publicDir) => {
+  app.use(express.static(path.join(__dirname, publicDir)));
+});
+
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "app/dist/index.html"));
+  res.sendFile(path.join(__dirname, mainIndex));
 });
 
 app.listen(
   port,
-  "127.0.0.1", //localhost only
+  //"127.0.0.1", //localhost only
   () => {
     console.log(`App listening on port ${port}`);
   },

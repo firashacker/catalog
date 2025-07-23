@@ -43,7 +43,7 @@ function Home() {
 
   const handleDelete = () => {
     if (cart.length <= 0) return;
-    if (!confirm(" التراجع عن الفاتورة؟")) return;
+    if (!confirm("cancle selection ?")) return;
     clearCart();
     setShowCart(false);
   };

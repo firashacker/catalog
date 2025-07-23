@@ -12,7 +12,7 @@
   "main": "server.js",
   "scripts": {
     "dev": "./dev.sh",
-    "build": "npx prisma generate && npx prisma db push && cd app && npm run build&& mkdir app/dist/images "
+    "build": "npx prisma generate && npx prisma db push && cd app && npm run build && cd - && node server "
   },
   "dependencies": {
     "@prisma/client": "^6.9.0",
