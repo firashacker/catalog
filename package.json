@@ -12,7 +12,7 @@
   "main": "server.js",
   "scripts": {
     "dev": "./dev.sh",
-    "build": "npm install && npx prisma generate && npx prisma db push && cd app && env  VITE_SELLPOINT=CaravanCo npm run build && cd - ",
+    "build": "npm install && npx prisma generate && npx prisma db push && cd app && env  VITE_SELLPOINT=CaravanCo npm run build",
     "start" : "node server"
   },
   "dependencies": {
