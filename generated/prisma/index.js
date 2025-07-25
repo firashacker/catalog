@@ -159,7 +159,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/home/firas/Projects/Catalog/generated/prisma",
+      "value": "/home/firas/Data/Projects/Catalog/generated/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -173,7 +173,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/home/firas/Projects/Catalog/prisma/schema.prisma",
+    "sourceFilePath": "/home/firas/Data/Projects/Catalog/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {

@@ -12,7 +12,8 @@
   "main": "server.js",
   "scripts": {
     "dev": "./dev.sh",
-    "build": "npx prisma generate && npx prisma db push && cd app && npm run build && cd - && node server "
+    "build": "npm install && npx prisma generate && npx prisma db push && cd app && env  VITE_SELLPOINT=CaravanCo npm run build && cd - ",
+    "start" : "node server"
   },
   "dependencies": {
     "@prisma/client": "^6.9.0",
