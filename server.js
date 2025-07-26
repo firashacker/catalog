@@ -40,7 +40,7 @@ app.use(bodyParser.json(), cookieParser());
 //const cors = require("cors");
 //app.use(cors());
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://195.123.166.158"); // Replace with your frontend URL");
+  res.header("Access-Control-Allow-Origin", "http://195.123.166.158:5173"); // Replace with your frontend URL");
   res.header("Access-Control-Allow-Headers", "X-Requested-With,Origin, Content-Type, Authorization, Accept");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
   res.header("Access-Control-Allow-Credentials", "true");
