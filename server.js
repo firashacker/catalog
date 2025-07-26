@@ -37,11 +37,18 @@ const prisma = new PrismaClient();
 app.use(bodyParser.json(), cookieParser());
 
 // Enable CORS (Cross-Origin Resource Sharing) - Allowing requests from the frontend
-const cors = require("cors");
-app.use(cors({
-  origin: 'http://37.60.227.221:3000', // replace with your actual frontend origin
-  credentials: true
-}));
+const cors = require('cors');
+
+// CORS setup to accept all routes from specific origin
+const corsOptions = {
+  origin: 'http://37.60.227.221:3000', // Change to the origin you want to accept, e.g., your frontend URL or IP
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],  // Allow specific methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allow headers
+  credentials: true  // If you're using cookies or authentication tokens
+};
+
+// Apply CORS to all routes
+app.use(cors(corsOptions));
 /*app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "http://37.60.227.221:3000"); // Replace with your frontend URL");
   res.header("Access-Control-Allow-Headers", " Content-Type, Authorization");
