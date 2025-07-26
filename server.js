@@ -10,6 +10,8 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
 
+
+
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
     const uploadDir = path.join(__dirname, `${publicDirs[0]}/images`);
@@ -35,9 +37,11 @@ const prisma = new PrismaClient();
 app.use(bodyParser.json(), cookieParser());
 
 // Enable CORS (Cross-Origin Resource Sharing) - Allowing requests from the frontend
+//const cors = require("cors");
+//app.use(cors());
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With,Origin, Content-Type, Authorization, Accept");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
   res.header("Access-Control-Allow-Credentials", "true");
 
