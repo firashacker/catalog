@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 9000;
+const port = process.env.SERVER_PORT || 3000; // Use environment variable or default to 3000
 const publicDirs = ["uploaded"];
 const mainIndex = `${publicDirs[1]}/index.html`;
 const bodyParser = require("body-parser");
