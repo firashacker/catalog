@@ -39,7 +39,8 @@ app.use(bodyParser.json(), cookieParser());
 // Enable CORS (Cross-Origin Resource Sharing) - Allowing requests from the frontend
 const cors = require("cors");
 app.use(cors({
-  origin: '*'
+  origin: 'http://37.60.227.221:3000', // replace with your actual frontend origin
+  credentials: true
 }));
 /*app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "http://37.60.227.221:3000"); // Replace with your frontend URL");
