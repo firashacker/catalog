@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const port = process.env.SERVER_PORT || 3000; // Use environment variable or default to 3000
-const publicDirs = ["uploaded"];
+const publicDirs = [ process.env.IMAGES_DIR || "./uploaded" ]; // Use environment variables or default to 'public' and 'public2'
 const mainIndex = `${publicDirs[1]}/index.html`;
 const bodyParser = require("body-parser");
 const multer = require("multer");
@@ -14,7 +14,7 @@ const cookieParser = require("cookie-parser");
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    const uploadDir = path.join(__dirname, `${publicDirs[0]}/images`);
+    const uploadDir = `${publicDirs[0]}/images`;
     // Check if the directory exists, and create it if it doesn't.
     fs.mkdir(uploadDir, { recursive: true }, (err) => {
       if (err) {
@@ -347,7 +347,7 @@ const path = require("path");
 const { setTimeout } = require("timers");
 
 publicDirs.map((publicDir) => {
-  app.use(express.static(path.join(__dirname, publicDir)));
+  app.use(express.static( publicDir));
 });
 
 app.get("*", (req, res) => {
