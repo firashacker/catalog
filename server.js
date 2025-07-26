@@ -37,9 +37,11 @@ const prisma = new PrismaClient();
 app.use(bodyParser.json(), cookieParser());
 
 // Enable CORS (Cross-Origin Resource Sharing) - Allowing requests from the frontend
-//const cors = require("cors");
-//app.use(cors());
-app.use((req, res, next) => {
+const cors = require("cors");
+app.use(cors({
+  origin: '*'
+}));
+/*app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "http://37.60.227.221:3000"); // Replace with your frontend URL");
   res.header("Access-Control-Allow-Headers", " Content-Type, Authorization");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
@@ -47,6 +49,7 @@ app.use((req, res, next) => {
 
   next();
 });
+*/
 
 //generate tokens
 // Generate JWT payload - Data to be encoded in the JWT
