@@ -41,7 +41,7 @@ const cors = require('cors');
 
 // CORS setup to accept all routes from specific origin
 const corsOptions = {
-  origin: 'http://37.60.227.221:3000', // Change to the origin you want to accept, e.g., your frontend URL or IP
+  origin: true, // Change to the origin you want to accept, e.g., your frontend URL or IP
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],  // Allow specific methods
   allowedHeaders: ['Content-Type', 'Authorization'], // Allow headers
   credentials: true  // If you're using cookies or authentication tokens
