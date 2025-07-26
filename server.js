@@ -336,7 +336,8 @@ publicDirs.map((publicDir) => {
 });
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, mainIndex));
+  console.log(req.url);
+ // res.sendFile(path.join(__dirname, mainIndex));
 });
 
 app.listen(

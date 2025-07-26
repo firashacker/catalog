@@ -159,7 +159,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/home/firas/Data/Projects/Catalog-backend/generated/prisma",
+      "value": "/home/firas/Data/Projects/catalog/catalog-backend/generated/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -173,7 +173,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/home/firas/Data/Projects/Catalog-backend/prisma/schema.prisma",
+    "sourceFilePath": "/home/firas/Data/Projects/catalog/catalog-backend/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
@@ -190,13 +190,13 @@ const config = {
   "inlineDatasources": {
     "db": {
       "url": {
-        "fromEnvVar": null,
-        "value": "file:../data.db"
+        "fromEnvVar": "DATABASE_URL",
+        "value": null
       }
     }
   },
-  "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"sqlite\"\n  url      = \"file:../data.db\"\n}\n\nmodel User {\n  id           Int      @id @default(autoincrement())\n  createdAt    DateTime @default(now())\n  updatesAt    DateTime @updatedAt\n  isAdmin      Boolean  @default(false)\n  username     String   @unique\n  password     String\n  refreshtoken String   @default(\"\")\n}\n\nmodel Categories {\n  id       Int        @id @default(autoincrement())\n  name     String     @unique\n  Products Products[]\n}\n\nmodel Products {\n  id           Int         @id @default(autoincrement())\n  listed       Boolean     @default(true)\n  title        String\n  description  String?\n  price        Float?\n  image        String\n  Categories   Categories? @relation(fields: [categoriesId], references: [id])\n  categoriesId Int?\n  orders       Orders[]\n}\n\nmodel ProductsOrders {\n  id         Int      @id @default(autoincrement())\n  createdAt  DateTime @default(now())\n  updatedAt  DateTime @updatedAt\n  shippped   Boolean  @default(false)\n  totalPrice Float\n  orders     Orders[]\n}\n\nmodel Orders {\n  id        Int            @id @default(autoincrement())\n  UserOrder ProductsOrders @relation(fields: [orderId], references: [id])\n  orderId   Int\n  product   Products?      @relation(fields: [productId], references: [id])\n  productId Int?\n  quantity  Int            @default(1)\n}\n",
-  "inlineSchemaHash": "d4e2bd48d54afab9f3f0cec24e45d04ce704ec63c96286283f447ceddf4a6903",
+  "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"sqlite\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id           Int      @id @default(autoincrement())\n  createdAt    DateTime @default(now())\n  updatesAt    DateTime @updatedAt\n  isAdmin      Boolean  @default(false)\n  username     String   @unique\n  password     String\n  refreshtoken String   @default(\"\")\n}\n\nmodel Categories {\n  id       Int        @id @default(autoincrement())\n  name     String     @unique\n  Products Products[]\n}\n\nmodel Products {\n  id           Int         @id @default(autoincrement())\n  listed       Boolean     @default(true)\n  title        String\n  description  String?\n  price        Float?\n  image        String\n  Categories   Categories? @relation(fields: [categoriesId], references: [id])\n  categoriesId Int?\n  orders       Orders[]\n}\n\nmodel ProductsOrders {\n  id         Int      @id @default(autoincrement())\n  createdAt  DateTime @default(now())\n  updatedAt  DateTime @updatedAt\n  shippped   Boolean  @default(false)\n  totalPrice Float\n  orders     Orders[]\n}\n\nmodel Orders {\n  id        Int            @id @default(autoincrement())\n  UserOrder ProductsOrders @relation(fields: [orderId], references: [id])\n  orderId   Int\n  product   Products?      @relation(fields: [productId], references: [id])\n  productId Int?\n  quantity  Int            @default(1)\n}\n",
+  "inlineSchemaHash": "d3d6c83b4ebb79da258c8aaeae388dcc8fa2988e76178da2ce9cae94ca60c422",
   "copyEngine": true
 }
 
