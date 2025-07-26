@@ -11,8 +11,8 @@
   "type": "commonjs",
   "main": "server.js",
   "scripts": {
-    "dev": "./dev.sh",
-    "build": "npm install && npx prisma generate && npx prisma db push && cd app && env  VITE_SELLPOINT=CaravanCo npm run build",
+    "dev": "nodemon server --host",
+    "build": "npm install && npx prisma generate && npx prisma db push",
     "start" : "node server"
   },
   "dependencies": {

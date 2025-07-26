@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const port = 9000;
-const publicDirs = ["uploaded", "app/dist"];
+const publicDirs = ["uploaded"];
 const mainIndex = `${publicDirs[1]}/index.html`;
 const bodyParser = require("body-parser");
 const multer = require("multer");
