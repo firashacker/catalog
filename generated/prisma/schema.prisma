@@ -24,16 +24,33 @@ model Categories {
   Products Products[]
 }
 
+model ProductsMaterials {
+  id         Int       @id @default(autoincrement())
+  product    Products  @relation(fields: [productId], references: [id])
+  productId  Int
+  material   Materials @relation(fields: [materialId], references: [id])
+  materialId Int
+}
+
+model Materials {
+  id               Int                 @id @default(autoincrement())
+  title            String              @unique
+  image            String
+  listed           Boolean             @default(true)
+  PrductsMaterials ProductsMaterials[]
+}
+
 model Products {
-  id           Int         @id @default(autoincrement())
-  listed       Boolean     @default(true)
-  title        String
-  description  String?
-  price        Float?
-  image        String
-  Categories   Categories? @relation(fields: [categoriesId], references: [id])
-  categoriesId Int?
-  orders       Orders[]
+  id                Int                 @id @default(autoincrement())
+  listed            Boolean             @default(true)
+  title             String
+  description       String?
+  price             Float?
+  image             String
+  ProductsMaterials ProductsMaterials[]
+  Categories        Categories?         @relation(fields: [categoriesId], references: [id])
+  categoriesId      Int?
+  orders            Orders[]
 }
 
 model ProductsOrders {

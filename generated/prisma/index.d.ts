@@ -24,6 +24,16 @@ export type User = $Result.DefaultSelection<Prisma.$UserPayload>
  */
 export type Categories = $Result.DefaultSelection<Prisma.$CategoriesPayload>
 /**
+ * Model ProductsMaterials
+ * 
+ */
+export type ProductsMaterials = $Result.DefaultSelection<Prisma.$ProductsMaterialsPayload>
+/**
+ * Model Materials
+ * 
+ */
+export type Materials = $Result.DefaultSelection<Prisma.$MaterialsPayload>
+/**
  * Model Products
  * 
  */
@@ -183,6 +193,26 @@ export class PrismaClient<
     * ```
     */
   get categories(): Prisma.CategoriesDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.productsMaterials`: Exposes CRUD operations for the **ProductsMaterials** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ProductsMaterials
+    * const productsMaterials = await prisma.productsMaterials.findMany()
+    * ```
+    */
+  get productsMaterials(): Prisma.ProductsMaterialsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.materials`: Exposes CRUD operations for the **Materials** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Materials
+    * const materials = await prisma.materials.findMany()
+    * ```
+    */
+  get materials(): Prisma.MaterialsDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.products`: Exposes CRUD operations for the **Products** model.
@@ -655,6 +685,8 @@ export namespace Prisma {
   export const ModelName: {
     User: 'User',
     Categories: 'Categories',
+    ProductsMaterials: 'ProductsMaterials',
+    Materials: 'Materials',
     Products: 'Products',
     ProductsOrders: 'ProductsOrders',
     Orders: 'Orders'
@@ -676,7 +708,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "categories" | "products" | "productsOrders" | "orders"
+      modelProps: "user" | "categories" | "productsMaterials" | "materials" | "products" | "productsOrders" | "orders"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -825,6 +857,154 @@ export namespace Prisma {
           count: {
             args: Prisma.CategoriesCountArgs<ExtArgs>
             result: $Utils.Optional<CategoriesCountAggregateOutputType> | number
+          }
+        }
+      }
+      ProductsMaterials: {
+        payload: Prisma.$ProductsMaterialsPayload<ExtArgs>
+        fields: Prisma.ProductsMaterialsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ProductsMaterialsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductsMaterialsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ProductsMaterialsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductsMaterialsPayload>
+          }
+          findFirst: {
+            args: Prisma.ProductsMaterialsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductsMaterialsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ProductsMaterialsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductsMaterialsPayload>
+          }
+          findMany: {
+            args: Prisma.ProductsMaterialsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductsMaterialsPayload>[]
+          }
+          create: {
+            args: Prisma.ProductsMaterialsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductsMaterialsPayload>
+          }
+          createMany: {
+            args: Prisma.ProductsMaterialsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ProductsMaterialsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductsMaterialsPayload>[]
+          }
+          delete: {
+            args: Prisma.ProductsMaterialsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductsMaterialsPayload>
+          }
+          update: {
+            args: Prisma.ProductsMaterialsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductsMaterialsPayload>
+          }
+          deleteMany: {
+            args: Prisma.ProductsMaterialsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ProductsMaterialsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ProductsMaterialsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductsMaterialsPayload>[]
+          }
+          upsert: {
+            args: Prisma.ProductsMaterialsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductsMaterialsPayload>
+          }
+          aggregate: {
+            args: Prisma.ProductsMaterialsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateProductsMaterials>
+          }
+          groupBy: {
+            args: Prisma.ProductsMaterialsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ProductsMaterialsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ProductsMaterialsCountArgs<ExtArgs>
+            result: $Utils.Optional<ProductsMaterialsCountAggregateOutputType> | number
+          }
+        }
+      }
+      Materials: {
+        payload: Prisma.$MaterialsPayload<ExtArgs>
+        fields: Prisma.MaterialsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.MaterialsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MaterialsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.MaterialsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MaterialsPayload>
+          }
+          findFirst: {
+            args: Prisma.MaterialsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MaterialsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.MaterialsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MaterialsPayload>
+          }
+          findMany: {
+            args: Prisma.MaterialsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MaterialsPayload>[]
+          }
+          create: {
+            args: Prisma.MaterialsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MaterialsPayload>
+          }
+          createMany: {
+            args: Prisma.MaterialsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.MaterialsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MaterialsPayload>[]
+          }
+          delete: {
+            args: Prisma.MaterialsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MaterialsPayload>
+          }
+          update: {
+            args: Prisma.MaterialsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MaterialsPayload>
+          }
+          deleteMany: {
+            args: Prisma.MaterialsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.MaterialsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.MaterialsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MaterialsPayload>[]
+          }
+          upsert: {
+            args: Prisma.MaterialsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MaterialsPayload>
+          }
+          aggregate: {
+            args: Prisma.MaterialsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateMaterials>
+          }
+          groupBy: {
+            args: Prisma.MaterialsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<MaterialsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.MaterialsCountArgs<ExtArgs>
+            result: $Utils.Optional<MaterialsCountAggregateOutputType> | number
           }
         }
       }
@@ -1136,6 +1316,8 @@ export namespace Prisma {
   export type GlobalOmitConfig = {
     user?: UserOmit
     categories?: CategoriesOmit
+    productsMaterials?: ProductsMaterialsOmit
+    materials?: MaterialsOmit
     products?: ProductsOmit
     productsOrders?: ProductsOrdersOmit
     orders?: OrdersOmit
@@ -1260,14 +1442,47 @@ export namespace Prisma {
 
 
   /**
+   * Count Type MaterialsCountOutputType
+   */
+
+  export type MaterialsCountOutputType = {
+    PrductsMaterials: number
+  }
+
+  export type MaterialsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    PrductsMaterials?: boolean | MaterialsCountOutputTypeCountPrductsMaterialsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * MaterialsCountOutputType without action
+   */
+  export type MaterialsCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MaterialsCountOutputType
+     */
+    select?: MaterialsCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * MaterialsCountOutputType without action
+   */
+  export type MaterialsCountOutputTypeCountPrductsMaterialsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProductsMaterialsWhereInput
+  }
+
+
+  /**
    * Count Type ProductsCountOutputType
    */
 
   export type ProductsCountOutputType = {
+    ProductsMaterials: number
     orders: number
   }
 
   export type ProductsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    ProductsMaterials?: boolean | ProductsCountOutputTypeCountProductsMaterialsArgs
     orders?: boolean | ProductsCountOutputTypeCountOrdersArgs
   }
 
@@ -1280,6 +1495,13 @@ export namespace Prisma {
      * Select specific fields to fetch from the ProductsCountOutputType
      */
     select?: ProductsCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ProductsCountOutputType without action
+   */
+  export type ProductsCountOutputTypeCountProductsMaterialsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProductsMaterialsWhereInput
   }
 
   /**
@@ -3442,6 +3664,2175 @@ export namespace Prisma {
 
 
   /**
+   * Model ProductsMaterials
+   */
+
+  export type AggregateProductsMaterials = {
+    _count: ProductsMaterialsCountAggregateOutputType | null
+    _avg: ProductsMaterialsAvgAggregateOutputType | null
+    _sum: ProductsMaterialsSumAggregateOutputType | null
+    _min: ProductsMaterialsMinAggregateOutputType | null
+    _max: ProductsMaterialsMaxAggregateOutputType | null
+  }
+
+  export type ProductsMaterialsAvgAggregateOutputType = {
+    id: number | null
+    productId: number | null
+    materialId: number | null
+  }
+
+  export type ProductsMaterialsSumAggregateOutputType = {
+    id: number | null
+    productId: number | null
+    materialId: number | null
+  }
+
+  export type ProductsMaterialsMinAggregateOutputType = {
+    id: number | null
+    productId: number | null
+    materialId: number | null
+  }
+
+  export type ProductsMaterialsMaxAggregateOutputType = {
+    id: number | null
+    productId: number | null
+    materialId: number | null
+  }
+
+  export type ProductsMaterialsCountAggregateOutputType = {
+    id: number
+    productId: number
+    materialId: number
+    _all: number
+  }
+
+
+  export type ProductsMaterialsAvgAggregateInputType = {
+    id?: true
+    productId?: true
+    materialId?: true
+  }
+
+  export type ProductsMaterialsSumAggregateInputType = {
+    id?: true
+    productId?: true
+    materialId?: true
+  }
+
+  export type ProductsMaterialsMinAggregateInputType = {
+    id?: true
+    productId?: true
+    materialId?: true
+  }
+
+  export type ProductsMaterialsMaxAggregateInputType = {
+    id?: true
+    productId?: true
+    materialId?: true
+  }
+
+  export type ProductsMaterialsCountAggregateInputType = {
+    id?: true
+    productId?: true
+    materialId?: true
+    _all?: true
+  }
+
+  export type ProductsMaterialsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ProductsMaterials to aggregate.
+     */
+    where?: ProductsMaterialsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProductsMaterials to fetch.
+     */
+    orderBy?: ProductsMaterialsOrderByWithRelationInput | ProductsMaterialsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ProductsMaterialsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProductsMaterials from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProductsMaterials.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ProductsMaterials
+    **/
+    _count?: true | ProductsMaterialsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ProductsMaterialsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ProductsMaterialsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ProductsMaterialsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ProductsMaterialsMaxAggregateInputType
+  }
+
+  export type GetProductsMaterialsAggregateType<T extends ProductsMaterialsAggregateArgs> = {
+        [P in keyof T & keyof AggregateProductsMaterials]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateProductsMaterials[P]>
+      : GetScalarType<T[P], AggregateProductsMaterials[P]>
+  }
+
+
+
+
+  export type ProductsMaterialsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProductsMaterialsWhereInput
+    orderBy?: ProductsMaterialsOrderByWithAggregationInput | ProductsMaterialsOrderByWithAggregationInput[]
+    by: ProductsMaterialsScalarFieldEnum[] | ProductsMaterialsScalarFieldEnum
+    having?: ProductsMaterialsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ProductsMaterialsCountAggregateInputType | true
+    _avg?: ProductsMaterialsAvgAggregateInputType
+    _sum?: ProductsMaterialsSumAggregateInputType
+    _min?: ProductsMaterialsMinAggregateInputType
+    _max?: ProductsMaterialsMaxAggregateInputType
+  }
+
+  export type ProductsMaterialsGroupByOutputType = {
+    id: number
+    productId: number
+    materialId: number
+    _count: ProductsMaterialsCountAggregateOutputType | null
+    _avg: ProductsMaterialsAvgAggregateOutputType | null
+    _sum: ProductsMaterialsSumAggregateOutputType | null
+    _min: ProductsMaterialsMinAggregateOutputType | null
+    _max: ProductsMaterialsMaxAggregateOutputType | null
+  }
+
+  type GetProductsMaterialsGroupByPayload<T extends ProductsMaterialsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ProductsMaterialsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ProductsMaterialsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ProductsMaterialsGroupByOutputType[P]>
+            : GetScalarType<T[P], ProductsMaterialsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ProductsMaterialsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    productId?: boolean
+    materialId?: boolean
+    product?: boolean | ProductsDefaultArgs<ExtArgs>
+    material?: boolean | MaterialsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["productsMaterials"]>
+
+  export type ProductsMaterialsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    productId?: boolean
+    materialId?: boolean
+    product?: boolean | ProductsDefaultArgs<ExtArgs>
+    material?: boolean | MaterialsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["productsMaterials"]>
+
+  export type ProductsMaterialsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    productId?: boolean
+    materialId?: boolean
+    product?: boolean | ProductsDefaultArgs<ExtArgs>
+    material?: boolean | MaterialsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["productsMaterials"]>
+
+  export type ProductsMaterialsSelectScalar = {
+    id?: boolean
+    productId?: boolean
+    materialId?: boolean
+  }
+
+  export type ProductsMaterialsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "productId" | "materialId", ExtArgs["result"]["productsMaterials"]>
+  export type ProductsMaterialsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    product?: boolean | ProductsDefaultArgs<ExtArgs>
+    material?: boolean | MaterialsDefaultArgs<ExtArgs>
+  }
+  export type ProductsMaterialsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    product?: boolean | ProductsDefaultArgs<ExtArgs>
+    material?: boolean | MaterialsDefaultArgs<ExtArgs>
+  }
+  export type ProductsMaterialsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    product?: boolean | ProductsDefaultArgs<ExtArgs>
+    material?: boolean | MaterialsDefaultArgs<ExtArgs>
+  }
+
+  export type $ProductsMaterialsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ProductsMaterials"
+    objects: {
+      product: Prisma.$ProductsPayload<ExtArgs>
+      material: Prisma.$MaterialsPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      productId: number
+      materialId: number
+    }, ExtArgs["result"]["productsMaterials"]>
+    composites: {}
+  }
+
+  type ProductsMaterialsGetPayload<S extends boolean | null | undefined | ProductsMaterialsDefaultArgs> = $Result.GetResult<Prisma.$ProductsMaterialsPayload, S>
+
+  type ProductsMaterialsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ProductsMaterialsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ProductsMaterialsCountAggregateInputType | true
+    }
+
+  export interface ProductsMaterialsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ProductsMaterials'], meta: { name: 'ProductsMaterials' } }
+    /**
+     * Find zero or one ProductsMaterials that matches the filter.
+     * @param {ProductsMaterialsFindUniqueArgs} args - Arguments to find a ProductsMaterials
+     * @example
+     * // Get one ProductsMaterials
+     * const productsMaterials = await prisma.productsMaterials.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ProductsMaterialsFindUniqueArgs>(args: SelectSubset<T, ProductsMaterialsFindUniqueArgs<ExtArgs>>): Prisma__ProductsMaterialsClient<$Result.GetResult<Prisma.$ProductsMaterialsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ProductsMaterials that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ProductsMaterialsFindUniqueOrThrowArgs} args - Arguments to find a ProductsMaterials
+     * @example
+     * // Get one ProductsMaterials
+     * const productsMaterials = await prisma.productsMaterials.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ProductsMaterialsFindUniqueOrThrowArgs>(args: SelectSubset<T, ProductsMaterialsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ProductsMaterialsClient<$Result.GetResult<Prisma.$ProductsMaterialsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ProductsMaterials that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProductsMaterialsFindFirstArgs} args - Arguments to find a ProductsMaterials
+     * @example
+     * // Get one ProductsMaterials
+     * const productsMaterials = await prisma.productsMaterials.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ProductsMaterialsFindFirstArgs>(args?: SelectSubset<T, ProductsMaterialsFindFirstArgs<ExtArgs>>): Prisma__ProductsMaterialsClient<$Result.GetResult<Prisma.$ProductsMaterialsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ProductsMaterials that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProductsMaterialsFindFirstOrThrowArgs} args - Arguments to find a ProductsMaterials
+     * @example
+     * // Get one ProductsMaterials
+     * const productsMaterials = await prisma.productsMaterials.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ProductsMaterialsFindFirstOrThrowArgs>(args?: SelectSubset<T, ProductsMaterialsFindFirstOrThrowArgs<ExtArgs>>): Prisma__ProductsMaterialsClient<$Result.GetResult<Prisma.$ProductsMaterialsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ProductsMaterials that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProductsMaterialsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ProductsMaterials
+     * const productsMaterials = await prisma.productsMaterials.findMany()
+     * 
+     * // Get first 10 ProductsMaterials
+     * const productsMaterials = await prisma.productsMaterials.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const productsMaterialsWithIdOnly = await prisma.productsMaterials.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ProductsMaterialsFindManyArgs>(args?: SelectSubset<T, ProductsMaterialsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductsMaterialsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ProductsMaterials.
+     * @param {ProductsMaterialsCreateArgs} args - Arguments to create a ProductsMaterials.
+     * @example
+     * // Create one ProductsMaterials
+     * const ProductsMaterials = await prisma.productsMaterials.create({
+     *   data: {
+     *     // ... data to create a ProductsMaterials
+     *   }
+     * })
+     * 
+     */
+    create<T extends ProductsMaterialsCreateArgs>(args: SelectSubset<T, ProductsMaterialsCreateArgs<ExtArgs>>): Prisma__ProductsMaterialsClient<$Result.GetResult<Prisma.$ProductsMaterialsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ProductsMaterials.
+     * @param {ProductsMaterialsCreateManyArgs} args - Arguments to create many ProductsMaterials.
+     * @example
+     * // Create many ProductsMaterials
+     * const productsMaterials = await prisma.productsMaterials.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ProductsMaterialsCreateManyArgs>(args?: SelectSubset<T, ProductsMaterialsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ProductsMaterials and returns the data saved in the database.
+     * @param {ProductsMaterialsCreateManyAndReturnArgs} args - Arguments to create many ProductsMaterials.
+     * @example
+     * // Create many ProductsMaterials
+     * const productsMaterials = await prisma.productsMaterials.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ProductsMaterials and only return the `id`
+     * const productsMaterialsWithIdOnly = await prisma.productsMaterials.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ProductsMaterialsCreateManyAndReturnArgs>(args?: SelectSubset<T, ProductsMaterialsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductsMaterialsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ProductsMaterials.
+     * @param {ProductsMaterialsDeleteArgs} args - Arguments to delete one ProductsMaterials.
+     * @example
+     * // Delete one ProductsMaterials
+     * const ProductsMaterials = await prisma.productsMaterials.delete({
+     *   where: {
+     *     // ... filter to delete one ProductsMaterials
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ProductsMaterialsDeleteArgs>(args: SelectSubset<T, ProductsMaterialsDeleteArgs<ExtArgs>>): Prisma__ProductsMaterialsClient<$Result.GetResult<Prisma.$ProductsMaterialsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ProductsMaterials.
+     * @param {ProductsMaterialsUpdateArgs} args - Arguments to update one ProductsMaterials.
+     * @example
+     * // Update one ProductsMaterials
+     * const productsMaterials = await prisma.productsMaterials.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ProductsMaterialsUpdateArgs>(args: SelectSubset<T, ProductsMaterialsUpdateArgs<ExtArgs>>): Prisma__ProductsMaterialsClient<$Result.GetResult<Prisma.$ProductsMaterialsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ProductsMaterials.
+     * @param {ProductsMaterialsDeleteManyArgs} args - Arguments to filter ProductsMaterials to delete.
+     * @example
+     * // Delete a few ProductsMaterials
+     * const { count } = await prisma.productsMaterials.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ProductsMaterialsDeleteManyArgs>(args?: SelectSubset<T, ProductsMaterialsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ProductsMaterials.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProductsMaterialsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ProductsMaterials
+     * const productsMaterials = await prisma.productsMaterials.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ProductsMaterialsUpdateManyArgs>(args: SelectSubset<T, ProductsMaterialsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ProductsMaterials and returns the data updated in the database.
+     * @param {ProductsMaterialsUpdateManyAndReturnArgs} args - Arguments to update many ProductsMaterials.
+     * @example
+     * // Update many ProductsMaterials
+     * const productsMaterials = await prisma.productsMaterials.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ProductsMaterials and only return the `id`
+     * const productsMaterialsWithIdOnly = await prisma.productsMaterials.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ProductsMaterialsUpdateManyAndReturnArgs>(args: SelectSubset<T, ProductsMaterialsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductsMaterialsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ProductsMaterials.
+     * @param {ProductsMaterialsUpsertArgs} args - Arguments to update or create a ProductsMaterials.
+     * @example
+     * // Update or create a ProductsMaterials
+     * const productsMaterials = await prisma.productsMaterials.upsert({
+     *   create: {
+     *     // ... data to create a ProductsMaterials
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ProductsMaterials we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ProductsMaterialsUpsertArgs>(args: SelectSubset<T, ProductsMaterialsUpsertArgs<ExtArgs>>): Prisma__ProductsMaterialsClient<$Result.GetResult<Prisma.$ProductsMaterialsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ProductsMaterials.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProductsMaterialsCountArgs} args - Arguments to filter ProductsMaterials to count.
+     * @example
+     * // Count the number of ProductsMaterials
+     * const count = await prisma.productsMaterials.count({
+     *   where: {
+     *     // ... the filter for the ProductsMaterials we want to count
+     *   }
+     * })
+    **/
+    count<T extends ProductsMaterialsCountArgs>(
+      args?: Subset<T, ProductsMaterialsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ProductsMaterialsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ProductsMaterials.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProductsMaterialsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ProductsMaterialsAggregateArgs>(args: Subset<T, ProductsMaterialsAggregateArgs>): Prisma.PrismaPromise<GetProductsMaterialsAggregateType<T>>
+
+    /**
+     * Group by ProductsMaterials.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProductsMaterialsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ProductsMaterialsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ProductsMaterialsGroupByArgs['orderBy'] }
+        : { orderBy?: ProductsMaterialsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ProductsMaterialsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProductsMaterialsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ProductsMaterials model
+   */
+  readonly fields: ProductsMaterialsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ProductsMaterials.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ProductsMaterialsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    product<T extends ProductsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProductsDefaultArgs<ExtArgs>>): Prisma__ProductsClient<$Result.GetResult<Prisma.$ProductsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    material<T extends MaterialsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, MaterialsDefaultArgs<ExtArgs>>): Prisma__MaterialsClient<$Result.GetResult<Prisma.$MaterialsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ProductsMaterials model
+   */
+  interface ProductsMaterialsFieldRefs {
+    readonly id: FieldRef<"ProductsMaterials", 'Int'>
+    readonly productId: FieldRef<"ProductsMaterials", 'Int'>
+    readonly materialId: FieldRef<"ProductsMaterials", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ProductsMaterials findUnique
+   */
+  export type ProductsMaterialsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductsMaterials
+     */
+    select?: ProductsMaterialsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductsMaterials
+     */
+    omit?: ProductsMaterialsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductsMaterialsInclude<ExtArgs> | null
+    /**
+     * Filter, which ProductsMaterials to fetch.
+     */
+    where: ProductsMaterialsWhereUniqueInput
+  }
+
+  /**
+   * ProductsMaterials findUniqueOrThrow
+   */
+  export type ProductsMaterialsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductsMaterials
+     */
+    select?: ProductsMaterialsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductsMaterials
+     */
+    omit?: ProductsMaterialsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductsMaterialsInclude<ExtArgs> | null
+    /**
+     * Filter, which ProductsMaterials to fetch.
+     */
+    where: ProductsMaterialsWhereUniqueInput
+  }
+
+  /**
+   * ProductsMaterials findFirst
+   */
+  export type ProductsMaterialsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductsMaterials
+     */
+    select?: ProductsMaterialsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductsMaterials
+     */
+    omit?: ProductsMaterialsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductsMaterialsInclude<ExtArgs> | null
+    /**
+     * Filter, which ProductsMaterials to fetch.
+     */
+    where?: ProductsMaterialsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProductsMaterials to fetch.
+     */
+    orderBy?: ProductsMaterialsOrderByWithRelationInput | ProductsMaterialsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ProductsMaterials.
+     */
+    cursor?: ProductsMaterialsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProductsMaterials from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProductsMaterials.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProductsMaterials.
+     */
+    distinct?: ProductsMaterialsScalarFieldEnum | ProductsMaterialsScalarFieldEnum[]
+  }
+
+  /**
+   * ProductsMaterials findFirstOrThrow
+   */
+  export type ProductsMaterialsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductsMaterials
+     */
+    select?: ProductsMaterialsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductsMaterials
+     */
+    omit?: ProductsMaterialsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductsMaterialsInclude<ExtArgs> | null
+    /**
+     * Filter, which ProductsMaterials to fetch.
+     */
+    where?: ProductsMaterialsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProductsMaterials to fetch.
+     */
+    orderBy?: ProductsMaterialsOrderByWithRelationInput | ProductsMaterialsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ProductsMaterials.
+     */
+    cursor?: ProductsMaterialsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProductsMaterials from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProductsMaterials.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProductsMaterials.
+     */
+    distinct?: ProductsMaterialsScalarFieldEnum | ProductsMaterialsScalarFieldEnum[]
+  }
+
+  /**
+   * ProductsMaterials findMany
+   */
+  export type ProductsMaterialsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductsMaterials
+     */
+    select?: ProductsMaterialsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductsMaterials
+     */
+    omit?: ProductsMaterialsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductsMaterialsInclude<ExtArgs> | null
+    /**
+     * Filter, which ProductsMaterials to fetch.
+     */
+    where?: ProductsMaterialsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProductsMaterials to fetch.
+     */
+    orderBy?: ProductsMaterialsOrderByWithRelationInput | ProductsMaterialsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ProductsMaterials.
+     */
+    cursor?: ProductsMaterialsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProductsMaterials from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProductsMaterials.
+     */
+    skip?: number
+    distinct?: ProductsMaterialsScalarFieldEnum | ProductsMaterialsScalarFieldEnum[]
+  }
+
+  /**
+   * ProductsMaterials create
+   */
+  export type ProductsMaterialsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductsMaterials
+     */
+    select?: ProductsMaterialsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductsMaterials
+     */
+    omit?: ProductsMaterialsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductsMaterialsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ProductsMaterials.
+     */
+    data: XOR<ProductsMaterialsCreateInput, ProductsMaterialsUncheckedCreateInput>
+  }
+
+  /**
+   * ProductsMaterials createMany
+   */
+  export type ProductsMaterialsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ProductsMaterials.
+     */
+    data: ProductsMaterialsCreateManyInput | ProductsMaterialsCreateManyInput[]
+  }
+
+  /**
+   * ProductsMaterials createManyAndReturn
+   */
+  export type ProductsMaterialsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductsMaterials
+     */
+    select?: ProductsMaterialsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductsMaterials
+     */
+    omit?: ProductsMaterialsOmit<ExtArgs> | null
+    /**
+     * The data used to create many ProductsMaterials.
+     */
+    data: ProductsMaterialsCreateManyInput | ProductsMaterialsCreateManyInput[]
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductsMaterialsIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ProductsMaterials update
+   */
+  export type ProductsMaterialsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductsMaterials
+     */
+    select?: ProductsMaterialsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductsMaterials
+     */
+    omit?: ProductsMaterialsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductsMaterialsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ProductsMaterials.
+     */
+    data: XOR<ProductsMaterialsUpdateInput, ProductsMaterialsUncheckedUpdateInput>
+    /**
+     * Choose, which ProductsMaterials to update.
+     */
+    where: ProductsMaterialsWhereUniqueInput
+  }
+
+  /**
+   * ProductsMaterials updateMany
+   */
+  export type ProductsMaterialsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ProductsMaterials.
+     */
+    data: XOR<ProductsMaterialsUpdateManyMutationInput, ProductsMaterialsUncheckedUpdateManyInput>
+    /**
+     * Filter which ProductsMaterials to update
+     */
+    where?: ProductsMaterialsWhereInput
+    /**
+     * Limit how many ProductsMaterials to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ProductsMaterials updateManyAndReturn
+   */
+  export type ProductsMaterialsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductsMaterials
+     */
+    select?: ProductsMaterialsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductsMaterials
+     */
+    omit?: ProductsMaterialsOmit<ExtArgs> | null
+    /**
+     * The data used to update ProductsMaterials.
+     */
+    data: XOR<ProductsMaterialsUpdateManyMutationInput, ProductsMaterialsUncheckedUpdateManyInput>
+    /**
+     * Filter which ProductsMaterials to update
+     */
+    where?: ProductsMaterialsWhereInput
+    /**
+     * Limit how many ProductsMaterials to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductsMaterialsIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ProductsMaterials upsert
+   */
+  export type ProductsMaterialsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductsMaterials
+     */
+    select?: ProductsMaterialsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductsMaterials
+     */
+    omit?: ProductsMaterialsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductsMaterialsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ProductsMaterials to update in case it exists.
+     */
+    where: ProductsMaterialsWhereUniqueInput
+    /**
+     * In case the ProductsMaterials found by the `where` argument doesn't exist, create a new ProductsMaterials with this data.
+     */
+    create: XOR<ProductsMaterialsCreateInput, ProductsMaterialsUncheckedCreateInput>
+    /**
+     * In case the ProductsMaterials was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ProductsMaterialsUpdateInput, ProductsMaterialsUncheckedUpdateInput>
+  }
+
+  /**
+   * ProductsMaterials delete
+   */
+  export type ProductsMaterialsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductsMaterials
+     */
+    select?: ProductsMaterialsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductsMaterials
+     */
+    omit?: ProductsMaterialsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductsMaterialsInclude<ExtArgs> | null
+    /**
+     * Filter which ProductsMaterials to delete.
+     */
+    where: ProductsMaterialsWhereUniqueInput
+  }
+
+  /**
+   * ProductsMaterials deleteMany
+   */
+  export type ProductsMaterialsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ProductsMaterials to delete
+     */
+    where?: ProductsMaterialsWhereInput
+    /**
+     * Limit how many ProductsMaterials to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ProductsMaterials without action
+   */
+  export type ProductsMaterialsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductsMaterials
+     */
+    select?: ProductsMaterialsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductsMaterials
+     */
+    omit?: ProductsMaterialsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductsMaterialsInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Materials
+   */
+
+  export type AggregateMaterials = {
+    _count: MaterialsCountAggregateOutputType | null
+    _avg: MaterialsAvgAggregateOutputType | null
+    _sum: MaterialsSumAggregateOutputType | null
+    _min: MaterialsMinAggregateOutputType | null
+    _max: MaterialsMaxAggregateOutputType | null
+  }
+
+  export type MaterialsAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type MaterialsSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type MaterialsMinAggregateOutputType = {
+    id: number | null
+    title: string | null
+    image: string | null
+    listed: boolean | null
+  }
+
+  export type MaterialsMaxAggregateOutputType = {
+    id: number | null
+    title: string | null
+    image: string | null
+    listed: boolean | null
+  }
+
+  export type MaterialsCountAggregateOutputType = {
+    id: number
+    title: number
+    image: number
+    listed: number
+    _all: number
+  }
+
+
+  export type MaterialsAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type MaterialsSumAggregateInputType = {
+    id?: true
+  }
+
+  export type MaterialsMinAggregateInputType = {
+    id?: true
+    title?: true
+    image?: true
+    listed?: true
+  }
+
+  export type MaterialsMaxAggregateInputType = {
+    id?: true
+    title?: true
+    image?: true
+    listed?: true
+  }
+
+  export type MaterialsCountAggregateInputType = {
+    id?: true
+    title?: true
+    image?: true
+    listed?: true
+    _all?: true
+  }
+
+  export type MaterialsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Materials to aggregate.
+     */
+    where?: MaterialsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Materials to fetch.
+     */
+    orderBy?: MaterialsOrderByWithRelationInput | MaterialsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: MaterialsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Materials from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Materials.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Materials
+    **/
+    _count?: true | MaterialsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: MaterialsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: MaterialsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: MaterialsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: MaterialsMaxAggregateInputType
+  }
+
+  export type GetMaterialsAggregateType<T extends MaterialsAggregateArgs> = {
+        [P in keyof T & keyof AggregateMaterials]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateMaterials[P]>
+      : GetScalarType<T[P], AggregateMaterials[P]>
+  }
+
+
+
+
+  export type MaterialsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MaterialsWhereInput
+    orderBy?: MaterialsOrderByWithAggregationInput | MaterialsOrderByWithAggregationInput[]
+    by: MaterialsScalarFieldEnum[] | MaterialsScalarFieldEnum
+    having?: MaterialsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: MaterialsCountAggregateInputType | true
+    _avg?: MaterialsAvgAggregateInputType
+    _sum?: MaterialsSumAggregateInputType
+    _min?: MaterialsMinAggregateInputType
+    _max?: MaterialsMaxAggregateInputType
+  }
+
+  export type MaterialsGroupByOutputType = {
+    id: number
+    title: string
+    image: string
+    listed: boolean
+    _count: MaterialsCountAggregateOutputType | null
+    _avg: MaterialsAvgAggregateOutputType | null
+    _sum: MaterialsSumAggregateOutputType | null
+    _min: MaterialsMinAggregateOutputType | null
+    _max: MaterialsMaxAggregateOutputType | null
+  }
+
+  type GetMaterialsGroupByPayload<T extends MaterialsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<MaterialsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof MaterialsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], MaterialsGroupByOutputType[P]>
+            : GetScalarType<T[P], MaterialsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type MaterialsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    image?: boolean
+    listed?: boolean
+    PrductsMaterials?: boolean | Materials$PrductsMaterialsArgs<ExtArgs>
+    _count?: boolean | MaterialsCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["materials"]>
+
+  export type MaterialsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    image?: boolean
+    listed?: boolean
+  }, ExtArgs["result"]["materials"]>
+
+  export type MaterialsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    image?: boolean
+    listed?: boolean
+  }, ExtArgs["result"]["materials"]>
+
+  export type MaterialsSelectScalar = {
+    id?: boolean
+    title?: boolean
+    image?: boolean
+    listed?: boolean
+  }
+
+  export type MaterialsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "image" | "listed", ExtArgs["result"]["materials"]>
+  export type MaterialsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    PrductsMaterials?: boolean | Materials$PrductsMaterialsArgs<ExtArgs>
+    _count?: boolean | MaterialsCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type MaterialsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type MaterialsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $MaterialsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Materials"
+    objects: {
+      PrductsMaterials: Prisma.$ProductsMaterialsPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      title: string
+      image: string
+      listed: boolean
+    }, ExtArgs["result"]["materials"]>
+    composites: {}
+  }
+
+  type MaterialsGetPayload<S extends boolean | null | undefined | MaterialsDefaultArgs> = $Result.GetResult<Prisma.$MaterialsPayload, S>
+
+  type MaterialsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<MaterialsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: MaterialsCountAggregateInputType | true
+    }
+
+  export interface MaterialsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Materials'], meta: { name: 'Materials' } }
+    /**
+     * Find zero or one Materials that matches the filter.
+     * @param {MaterialsFindUniqueArgs} args - Arguments to find a Materials
+     * @example
+     * // Get one Materials
+     * const materials = await prisma.materials.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends MaterialsFindUniqueArgs>(args: SelectSubset<T, MaterialsFindUniqueArgs<ExtArgs>>): Prisma__MaterialsClient<$Result.GetResult<Prisma.$MaterialsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Materials that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {MaterialsFindUniqueOrThrowArgs} args - Arguments to find a Materials
+     * @example
+     * // Get one Materials
+     * const materials = await prisma.materials.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends MaterialsFindUniqueOrThrowArgs>(args: SelectSubset<T, MaterialsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__MaterialsClient<$Result.GetResult<Prisma.$MaterialsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Materials that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MaterialsFindFirstArgs} args - Arguments to find a Materials
+     * @example
+     * // Get one Materials
+     * const materials = await prisma.materials.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends MaterialsFindFirstArgs>(args?: SelectSubset<T, MaterialsFindFirstArgs<ExtArgs>>): Prisma__MaterialsClient<$Result.GetResult<Prisma.$MaterialsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Materials that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MaterialsFindFirstOrThrowArgs} args - Arguments to find a Materials
+     * @example
+     * // Get one Materials
+     * const materials = await prisma.materials.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends MaterialsFindFirstOrThrowArgs>(args?: SelectSubset<T, MaterialsFindFirstOrThrowArgs<ExtArgs>>): Prisma__MaterialsClient<$Result.GetResult<Prisma.$MaterialsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Materials that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MaterialsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Materials
+     * const materials = await prisma.materials.findMany()
+     * 
+     * // Get first 10 Materials
+     * const materials = await prisma.materials.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const materialsWithIdOnly = await prisma.materials.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends MaterialsFindManyArgs>(args?: SelectSubset<T, MaterialsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MaterialsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Materials.
+     * @param {MaterialsCreateArgs} args - Arguments to create a Materials.
+     * @example
+     * // Create one Materials
+     * const Materials = await prisma.materials.create({
+     *   data: {
+     *     // ... data to create a Materials
+     *   }
+     * })
+     * 
+     */
+    create<T extends MaterialsCreateArgs>(args: SelectSubset<T, MaterialsCreateArgs<ExtArgs>>): Prisma__MaterialsClient<$Result.GetResult<Prisma.$MaterialsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Materials.
+     * @param {MaterialsCreateManyArgs} args - Arguments to create many Materials.
+     * @example
+     * // Create many Materials
+     * const materials = await prisma.materials.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends MaterialsCreateManyArgs>(args?: SelectSubset<T, MaterialsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Materials and returns the data saved in the database.
+     * @param {MaterialsCreateManyAndReturnArgs} args - Arguments to create many Materials.
+     * @example
+     * // Create many Materials
+     * const materials = await prisma.materials.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Materials and only return the `id`
+     * const materialsWithIdOnly = await prisma.materials.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends MaterialsCreateManyAndReturnArgs>(args?: SelectSubset<T, MaterialsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MaterialsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Materials.
+     * @param {MaterialsDeleteArgs} args - Arguments to delete one Materials.
+     * @example
+     * // Delete one Materials
+     * const Materials = await prisma.materials.delete({
+     *   where: {
+     *     // ... filter to delete one Materials
+     *   }
+     * })
+     * 
+     */
+    delete<T extends MaterialsDeleteArgs>(args: SelectSubset<T, MaterialsDeleteArgs<ExtArgs>>): Prisma__MaterialsClient<$Result.GetResult<Prisma.$MaterialsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Materials.
+     * @param {MaterialsUpdateArgs} args - Arguments to update one Materials.
+     * @example
+     * // Update one Materials
+     * const materials = await prisma.materials.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends MaterialsUpdateArgs>(args: SelectSubset<T, MaterialsUpdateArgs<ExtArgs>>): Prisma__MaterialsClient<$Result.GetResult<Prisma.$MaterialsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Materials.
+     * @param {MaterialsDeleteManyArgs} args - Arguments to filter Materials to delete.
+     * @example
+     * // Delete a few Materials
+     * const { count } = await prisma.materials.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends MaterialsDeleteManyArgs>(args?: SelectSubset<T, MaterialsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Materials.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MaterialsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Materials
+     * const materials = await prisma.materials.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends MaterialsUpdateManyArgs>(args: SelectSubset<T, MaterialsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Materials and returns the data updated in the database.
+     * @param {MaterialsUpdateManyAndReturnArgs} args - Arguments to update many Materials.
+     * @example
+     * // Update many Materials
+     * const materials = await prisma.materials.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Materials and only return the `id`
+     * const materialsWithIdOnly = await prisma.materials.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends MaterialsUpdateManyAndReturnArgs>(args: SelectSubset<T, MaterialsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MaterialsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Materials.
+     * @param {MaterialsUpsertArgs} args - Arguments to update or create a Materials.
+     * @example
+     * // Update or create a Materials
+     * const materials = await prisma.materials.upsert({
+     *   create: {
+     *     // ... data to create a Materials
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Materials we want to update
+     *   }
+     * })
+     */
+    upsert<T extends MaterialsUpsertArgs>(args: SelectSubset<T, MaterialsUpsertArgs<ExtArgs>>): Prisma__MaterialsClient<$Result.GetResult<Prisma.$MaterialsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Materials.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MaterialsCountArgs} args - Arguments to filter Materials to count.
+     * @example
+     * // Count the number of Materials
+     * const count = await prisma.materials.count({
+     *   where: {
+     *     // ... the filter for the Materials we want to count
+     *   }
+     * })
+    **/
+    count<T extends MaterialsCountArgs>(
+      args?: Subset<T, MaterialsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], MaterialsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Materials.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MaterialsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends MaterialsAggregateArgs>(args: Subset<T, MaterialsAggregateArgs>): Prisma.PrismaPromise<GetMaterialsAggregateType<T>>
+
+    /**
+     * Group by Materials.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MaterialsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends MaterialsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: MaterialsGroupByArgs['orderBy'] }
+        : { orderBy?: MaterialsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, MaterialsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMaterialsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Materials model
+   */
+  readonly fields: MaterialsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Materials.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__MaterialsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    PrductsMaterials<T extends Materials$PrductsMaterialsArgs<ExtArgs> = {}>(args?: Subset<T, Materials$PrductsMaterialsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductsMaterialsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Materials model
+   */
+  interface MaterialsFieldRefs {
+    readonly id: FieldRef<"Materials", 'Int'>
+    readonly title: FieldRef<"Materials", 'String'>
+    readonly image: FieldRef<"Materials", 'String'>
+    readonly listed: FieldRef<"Materials", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Materials findUnique
+   */
+  export type MaterialsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Materials
+     */
+    select?: MaterialsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Materials
+     */
+    omit?: MaterialsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MaterialsInclude<ExtArgs> | null
+    /**
+     * Filter, which Materials to fetch.
+     */
+    where: MaterialsWhereUniqueInput
+  }
+
+  /**
+   * Materials findUniqueOrThrow
+   */
+  export type MaterialsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Materials
+     */
+    select?: MaterialsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Materials
+     */
+    omit?: MaterialsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MaterialsInclude<ExtArgs> | null
+    /**
+     * Filter, which Materials to fetch.
+     */
+    where: MaterialsWhereUniqueInput
+  }
+
+  /**
+   * Materials findFirst
+   */
+  export type MaterialsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Materials
+     */
+    select?: MaterialsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Materials
+     */
+    omit?: MaterialsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MaterialsInclude<ExtArgs> | null
+    /**
+     * Filter, which Materials to fetch.
+     */
+    where?: MaterialsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Materials to fetch.
+     */
+    orderBy?: MaterialsOrderByWithRelationInput | MaterialsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Materials.
+     */
+    cursor?: MaterialsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Materials from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Materials.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Materials.
+     */
+    distinct?: MaterialsScalarFieldEnum | MaterialsScalarFieldEnum[]
+  }
+
+  /**
+   * Materials findFirstOrThrow
+   */
+  export type MaterialsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Materials
+     */
+    select?: MaterialsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Materials
+     */
+    omit?: MaterialsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MaterialsInclude<ExtArgs> | null
+    /**
+     * Filter, which Materials to fetch.
+     */
+    where?: MaterialsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Materials to fetch.
+     */
+    orderBy?: MaterialsOrderByWithRelationInput | MaterialsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Materials.
+     */
+    cursor?: MaterialsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Materials from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Materials.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Materials.
+     */
+    distinct?: MaterialsScalarFieldEnum | MaterialsScalarFieldEnum[]
+  }
+
+  /**
+   * Materials findMany
+   */
+  export type MaterialsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Materials
+     */
+    select?: MaterialsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Materials
+     */
+    omit?: MaterialsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MaterialsInclude<ExtArgs> | null
+    /**
+     * Filter, which Materials to fetch.
+     */
+    where?: MaterialsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Materials to fetch.
+     */
+    orderBy?: MaterialsOrderByWithRelationInput | MaterialsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Materials.
+     */
+    cursor?: MaterialsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Materials from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Materials.
+     */
+    skip?: number
+    distinct?: MaterialsScalarFieldEnum | MaterialsScalarFieldEnum[]
+  }
+
+  /**
+   * Materials create
+   */
+  export type MaterialsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Materials
+     */
+    select?: MaterialsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Materials
+     */
+    omit?: MaterialsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MaterialsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Materials.
+     */
+    data: XOR<MaterialsCreateInput, MaterialsUncheckedCreateInput>
+  }
+
+  /**
+   * Materials createMany
+   */
+  export type MaterialsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Materials.
+     */
+    data: MaterialsCreateManyInput | MaterialsCreateManyInput[]
+  }
+
+  /**
+   * Materials createManyAndReturn
+   */
+  export type MaterialsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Materials
+     */
+    select?: MaterialsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Materials
+     */
+    omit?: MaterialsOmit<ExtArgs> | null
+    /**
+     * The data used to create many Materials.
+     */
+    data: MaterialsCreateManyInput | MaterialsCreateManyInput[]
+  }
+
+  /**
+   * Materials update
+   */
+  export type MaterialsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Materials
+     */
+    select?: MaterialsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Materials
+     */
+    omit?: MaterialsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MaterialsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Materials.
+     */
+    data: XOR<MaterialsUpdateInput, MaterialsUncheckedUpdateInput>
+    /**
+     * Choose, which Materials to update.
+     */
+    where: MaterialsWhereUniqueInput
+  }
+
+  /**
+   * Materials updateMany
+   */
+  export type MaterialsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Materials.
+     */
+    data: XOR<MaterialsUpdateManyMutationInput, MaterialsUncheckedUpdateManyInput>
+    /**
+     * Filter which Materials to update
+     */
+    where?: MaterialsWhereInput
+    /**
+     * Limit how many Materials to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Materials updateManyAndReturn
+   */
+  export type MaterialsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Materials
+     */
+    select?: MaterialsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Materials
+     */
+    omit?: MaterialsOmit<ExtArgs> | null
+    /**
+     * The data used to update Materials.
+     */
+    data: XOR<MaterialsUpdateManyMutationInput, MaterialsUncheckedUpdateManyInput>
+    /**
+     * Filter which Materials to update
+     */
+    where?: MaterialsWhereInput
+    /**
+     * Limit how many Materials to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Materials upsert
+   */
+  export type MaterialsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Materials
+     */
+    select?: MaterialsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Materials
+     */
+    omit?: MaterialsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MaterialsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Materials to update in case it exists.
+     */
+    where: MaterialsWhereUniqueInput
+    /**
+     * In case the Materials found by the `where` argument doesn't exist, create a new Materials with this data.
+     */
+    create: XOR<MaterialsCreateInput, MaterialsUncheckedCreateInput>
+    /**
+     * In case the Materials was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<MaterialsUpdateInput, MaterialsUncheckedUpdateInput>
+  }
+
+  /**
+   * Materials delete
+   */
+  export type MaterialsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Materials
+     */
+    select?: MaterialsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Materials
+     */
+    omit?: MaterialsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MaterialsInclude<ExtArgs> | null
+    /**
+     * Filter which Materials to delete.
+     */
+    where: MaterialsWhereUniqueInput
+  }
+
+  /**
+   * Materials deleteMany
+   */
+  export type MaterialsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Materials to delete
+     */
+    where?: MaterialsWhereInput
+    /**
+     * Limit how many Materials to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Materials.PrductsMaterials
+   */
+  export type Materials$PrductsMaterialsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductsMaterials
+     */
+    select?: ProductsMaterialsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductsMaterials
+     */
+    omit?: ProductsMaterialsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductsMaterialsInclude<ExtArgs> | null
+    where?: ProductsMaterialsWhereInput
+    orderBy?: ProductsMaterialsOrderByWithRelationInput | ProductsMaterialsOrderByWithRelationInput[]
+    cursor?: ProductsMaterialsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProductsMaterialsScalarFieldEnum | ProductsMaterialsScalarFieldEnum[]
+  }
+
+  /**
+   * Materials without action
+   */
+  export type MaterialsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Materials
+     */
+    select?: MaterialsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Materials
+     */
+    omit?: MaterialsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MaterialsInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Model Products
    */
 
@@ -3663,6 +6054,7 @@ export namespace Prisma {
     price?: boolean
     image?: boolean
     categoriesId?: boolean
+    ProductsMaterials?: boolean | Products$ProductsMaterialsArgs<ExtArgs>
     Categories?: boolean | Products$CategoriesArgs<ExtArgs>
     orders?: boolean | Products$ordersArgs<ExtArgs>
     _count?: boolean | ProductsCountOutputTypeDefaultArgs<ExtArgs>
@@ -3702,6 +6094,7 @@ export namespace Prisma {
 
   export type ProductsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "listed" | "title" | "description" | "price" | "image" | "categoriesId", ExtArgs["result"]["products"]>
   export type ProductsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    ProductsMaterials?: boolean | Products$ProductsMaterialsArgs<ExtArgs>
     Categories?: boolean | Products$CategoriesArgs<ExtArgs>
     orders?: boolean | Products$ordersArgs<ExtArgs>
     _count?: boolean | ProductsCountOutputTypeDefaultArgs<ExtArgs>
@@ -3716,6 +6109,7 @@ export namespace Prisma {
   export type $ProductsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Products"
     objects: {
+      ProductsMaterials: Prisma.$ProductsMaterialsPayload<ExtArgs>[]
       Categories: Prisma.$CategoriesPayload<ExtArgs> | null
       orders: Prisma.$OrdersPayload<ExtArgs>[]
     }
@@ -4121,6 +6515,7 @@ export namespace Prisma {
    */
   export interface Prisma__ProductsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    ProductsMaterials<T extends Products$ProductsMaterialsArgs<ExtArgs> = {}>(args?: Subset<T, Products$ProductsMaterialsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductsMaterialsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     Categories<T extends Products$CategoriesArgs<ExtArgs> = {}>(args?: Subset<T, Products$CategoriesArgs<ExtArgs>>): Prisma__CategoriesClient<$Result.GetResult<Prisma.$CategoriesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     orders<T extends Products$ordersArgs<ExtArgs> = {}>(args?: Subset<T, Products$ordersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OrdersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
@@ -4550,6 +6945,30 @@ export namespace Prisma {
      * Limit how many Products to delete.
      */
     limit?: number
+  }
+
+  /**
+   * Products.ProductsMaterials
+   */
+  export type Products$ProductsMaterialsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductsMaterials
+     */
+    select?: ProductsMaterialsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductsMaterials
+     */
+    omit?: ProductsMaterialsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductsMaterialsInclude<ExtArgs> | null
+    where?: ProductsMaterialsWhereInput
+    orderBy?: ProductsMaterialsOrderByWithRelationInput | ProductsMaterialsOrderByWithRelationInput[]
+    cursor?: ProductsMaterialsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProductsMaterialsScalarFieldEnum | ProductsMaterialsScalarFieldEnum[]
   }
 
   /**
@@ -6868,6 +9287,25 @@ export namespace Prisma {
   export type CategoriesScalarFieldEnum = (typeof CategoriesScalarFieldEnum)[keyof typeof CategoriesScalarFieldEnum]
 
 
+  export const ProductsMaterialsScalarFieldEnum: {
+    id: 'id',
+    productId: 'productId',
+    materialId: 'materialId'
+  };
+
+  export type ProductsMaterialsScalarFieldEnum = (typeof ProductsMaterialsScalarFieldEnum)[keyof typeof ProductsMaterialsScalarFieldEnum]
+
+
+  export const MaterialsScalarFieldEnum: {
+    id: 'id',
+    title: 'title',
+    image: 'image',
+    listed: 'listed'
+  };
+
+  export type MaterialsScalarFieldEnum = (typeof MaterialsScalarFieldEnum)[keyof typeof MaterialsScalarFieldEnum]
+
+
   export const ProductsScalarFieldEnum: {
     id: 'id',
     listed: 'listed',
@@ -7067,6 +9505,108 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"Categories"> | string
   }
 
+  export type ProductsMaterialsWhereInput = {
+    AND?: ProductsMaterialsWhereInput | ProductsMaterialsWhereInput[]
+    OR?: ProductsMaterialsWhereInput[]
+    NOT?: ProductsMaterialsWhereInput | ProductsMaterialsWhereInput[]
+    id?: IntFilter<"ProductsMaterials"> | number
+    productId?: IntFilter<"ProductsMaterials"> | number
+    materialId?: IntFilter<"ProductsMaterials"> | number
+    product?: XOR<ProductsScalarRelationFilter, ProductsWhereInput>
+    material?: XOR<MaterialsScalarRelationFilter, MaterialsWhereInput>
+  }
+
+  export type ProductsMaterialsOrderByWithRelationInput = {
+    id?: SortOrder
+    productId?: SortOrder
+    materialId?: SortOrder
+    product?: ProductsOrderByWithRelationInput
+    material?: MaterialsOrderByWithRelationInput
+  }
+
+  export type ProductsMaterialsWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: ProductsMaterialsWhereInput | ProductsMaterialsWhereInput[]
+    OR?: ProductsMaterialsWhereInput[]
+    NOT?: ProductsMaterialsWhereInput | ProductsMaterialsWhereInput[]
+    productId?: IntFilter<"ProductsMaterials"> | number
+    materialId?: IntFilter<"ProductsMaterials"> | number
+    product?: XOR<ProductsScalarRelationFilter, ProductsWhereInput>
+    material?: XOR<MaterialsScalarRelationFilter, MaterialsWhereInput>
+  }, "id">
+
+  export type ProductsMaterialsOrderByWithAggregationInput = {
+    id?: SortOrder
+    productId?: SortOrder
+    materialId?: SortOrder
+    _count?: ProductsMaterialsCountOrderByAggregateInput
+    _avg?: ProductsMaterialsAvgOrderByAggregateInput
+    _max?: ProductsMaterialsMaxOrderByAggregateInput
+    _min?: ProductsMaterialsMinOrderByAggregateInput
+    _sum?: ProductsMaterialsSumOrderByAggregateInput
+  }
+
+  export type ProductsMaterialsScalarWhereWithAggregatesInput = {
+    AND?: ProductsMaterialsScalarWhereWithAggregatesInput | ProductsMaterialsScalarWhereWithAggregatesInput[]
+    OR?: ProductsMaterialsScalarWhereWithAggregatesInput[]
+    NOT?: ProductsMaterialsScalarWhereWithAggregatesInput | ProductsMaterialsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"ProductsMaterials"> | number
+    productId?: IntWithAggregatesFilter<"ProductsMaterials"> | number
+    materialId?: IntWithAggregatesFilter<"ProductsMaterials"> | number
+  }
+
+  export type MaterialsWhereInput = {
+    AND?: MaterialsWhereInput | MaterialsWhereInput[]
+    OR?: MaterialsWhereInput[]
+    NOT?: MaterialsWhereInput | MaterialsWhereInput[]
+    id?: IntFilter<"Materials"> | number
+    title?: StringFilter<"Materials"> | string
+    image?: StringFilter<"Materials"> | string
+    listed?: BoolFilter<"Materials"> | boolean
+    PrductsMaterials?: ProductsMaterialsListRelationFilter
+  }
+
+  export type MaterialsOrderByWithRelationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    image?: SortOrder
+    listed?: SortOrder
+    PrductsMaterials?: ProductsMaterialsOrderByRelationAggregateInput
+  }
+
+  export type MaterialsWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    title?: string
+    AND?: MaterialsWhereInput | MaterialsWhereInput[]
+    OR?: MaterialsWhereInput[]
+    NOT?: MaterialsWhereInput | MaterialsWhereInput[]
+    image?: StringFilter<"Materials"> | string
+    listed?: BoolFilter<"Materials"> | boolean
+    PrductsMaterials?: ProductsMaterialsListRelationFilter
+  }, "id" | "title">
+
+  export type MaterialsOrderByWithAggregationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    image?: SortOrder
+    listed?: SortOrder
+    _count?: MaterialsCountOrderByAggregateInput
+    _avg?: MaterialsAvgOrderByAggregateInput
+    _max?: MaterialsMaxOrderByAggregateInput
+    _min?: MaterialsMinOrderByAggregateInput
+    _sum?: MaterialsSumOrderByAggregateInput
+  }
+
+  export type MaterialsScalarWhereWithAggregatesInput = {
+    AND?: MaterialsScalarWhereWithAggregatesInput | MaterialsScalarWhereWithAggregatesInput[]
+    OR?: MaterialsScalarWhereWithAggregatesInput[]
+    NOT?: MaterialsScalarWhereWithAggregatesInput | MaterialsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Materials"> | number
+    title?: StringWithAggregatesFilter<"Materials"> | string
+    image?: StringWithAggregatesFilter<"Materials"> | string
+    listed?: BoolWithAggregatesFilter<"Materials"> | boolean
+  }
+
   export type ProductsWhereInput = {
     AND?: ProductsWhereInput | ProductsWhereInput[]
     OR?: ProductsWhereInput[]
@@ -7078,6 +9618,7 @@ export namespace Prisma {
     price?: FloatNullableFilter<"Products"> | number | null
     image?: StringFilter<"Products"> | string
     categoriesId?: IntNullableFilter<"Products"> | number | null
+    ProductsMaterials?: ProductsMaterialsListRelationFilter
     Categories?: XOR<CategoriesNullableScalarRelationFilter, CategoriesWhereInput> | null
     orders?: OrdersListRelationFilter
   }
@@ -7090,6 +9631,7 @@ export namespace Prisma {
     price?: SortOrderInput | SortOrder
     image?: SortOrder
     categoriesId?: SortOrderInput | SortOrder
+    ProductsMaterials?: ProductsMaterialsOrderByRelationAggregateInput
     Categories?: CategoriesOrderByWithRelationInput
     orders?: OrdersOrderByRelationAggregateInput
   }
@@ -7105,6 +9647,7 @@ export namespace Prisma {
     price?: FloatNullableFilter<"Products"> | number | null
     image?: StringFilter<"Products"> | string
     categoriesId?: IntNullableFilter<"Products"> | number | null
+    ProductsMaterials?: ProductsMaterialsListRelationFilter
     Categories?: XOR<CategoriesNullableScalarRelationFilter, CategoriesWhereInput> | null
     orders?: OrdersListRelationFilter
   }, "id">
@@ -7352,12 +9895,101 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
   }
 
+  export type ProductsMaterialsCreateInput = {
+    product: ProductsCreateNestedOneWithoutProductsMaterialsInput
+    material: MaterialsCreateNestedOneWithoutPrductsMaterialsInput
+  }
+
+  export type ProductsMaterialsUncheckedCreateInput = {
+    id?: number
+    productId: number
+    materialId: number
+  }
+
+  export type ProductsMaterialsUpdateInput = {
+    product?: ProductsUpdateOneRequiredWithoutProductsMaterialsNestedInput
+    material?: MaterialsUpdateOneRequiredWithoutPrductsMaterialsNestedInput
+  }
+
+  export type ProductsMaterialsUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    productId?: IntFieldUpdateOperationsInput | number
+    materialId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ProductsMaterialsCreateManyInput = {
+    id?: number
+    productId: number
+    materialId: number
+  }
+
+  export type ProductsMaterialsUpdateManyMutationInput = {
+
+  }
+
+  export type ProductsMaterialsUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    productId?: IntFieldUpdateOperationsInput | number
+    materialId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type MaterialsCreateInput = {
+    title: string
+    image: string
+    listed?: boolean
+    PrductsMaterials?: ProductsMaterialsCreateNestedManyWithoutMaterialInput
+  }
+
+  export type MaterialsUncheckedCreateInput = {
+    id?: number
+    title: string
+    image: string
+    listed?: boolean
+    PrductsMaterials?: ProductsMaterialsUncheckedCreateNestedManyWithoutMaterialInput
+  }
+
+  export type MaterialsUpdateInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    listed?: BoolFieldUpdateOperationsInput | boolean
+    PrductsMaterials?: ProductsMaterialsUpdateManyWithoutMaterialNestedInput
+  }
+
+  export type MaterialsUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    listed?: BoolFieldUpdateOperationsInput | boolean
+    PrductsMaterials?: ProductsMaterialsUncheckedUpdateManyWithoutMaterialNestedInput
+  }
+
+  export type MaterialsCreateManyInput = {
+    id?: number
+    title: string
+    image: string
+    listed?: boolean
+  }
+
+  export type MaterialsUpdateManyMutationInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    listed?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type MaterialsUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    listed?: BoolFieldUpdateOperationsInput | boolean
+  }
+
   export type ProductsCreateInput = {
     listed?: boolean
     title: string
     description?: string | null
     price?: number | null
     image: string
+    ProductsMaterials?: ProductsMaterialsCreateNestedManyWithoutProductInput
     Categories?: CategoriesCreateNestedOneWithoutProductsInput
     orders?: OrdersCreateNestedManyWithoutProductInput
   }
@@ -7370,6 +10002,7 @@ export namespace Prisma {
     price?: number | null
     image: string
     categoriesId?: number | null
+    ProductsMaterials?: ProductsMaterialsUncheckedCreateNestedManyWithoutProductInput
     orders?: OrdersUncheckedCreateNestedManyWithoutProductInput
   }
 
@@ -7379,6 +10012,7 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableFloatFieldUpdateOperationsInput | number | null
     image?: StringFieldUpdateOperationsInput | string
+    ProductsMaterials?: ProductsMaterialsUpdateManyWithoutProductNestedInput
     Categories?: CategoriesUpdateOneWithoutProductsNestedInput
     orders?: OrdersUpdateManyWithoutProductNestedInput
   }
@@ -7391,6 +10025,7 @@ export namespace Prisma {
     price?: NullableFloatFieldUpdateOperationsInput | number | null
     image?: StringFieldUpdateOperationsInput | string
     categoriesId?: NullableIntFieldUpdateOperationsInput | number | null
+    ProductsMaterials?: ProductsMaterialsUncheckedUpdateManyWithoutProductNestedInput
     orders?: OrdersUncheckedUpdateManyWithoutProductNestedInput
   }
 
@@ -7687,6 +10322,85 @@ export namespace Prisma {
   }
 
   export type CategoriesSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type ProductsScalarRelationFilter = {
+    is?: ProductsWhereInput
+    isNot?: ProductsWhereInput
+  }
+
+  export type MaterialsScalarRelationFilter = {
+    is?: MaterialsWhereInput
+    isNot?: MaterialsWhereInput
+  }
+
+  export type ProductsMaterialsCountOrderByAggregateInput = {
+    id?: SortOrder
+    productId?: SortOrder
+    materialId?: SortOrder
+  }
+
+  export type ProductsMaterialsAvgOrderByAggregateInput = {
+    id?: SortOrder
+    productId?: SortOrder
+    materialId?: SortOrder
+  }
+
+  export type ProductsMaterialsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    productId?: SortOrder
+    materialId?: SortOrder
+  }
+
+  export type ProductsMaterialsMinOrderByAggregateInput = {
+    id?: SortOrder
+    productId?: SortOrder
+    materialId?: SortOrder
+  }
+
+  export type ProductsMaterialsSumOrderByAggregateInput = {
+    id?: SortOrder
+    productId?: SortOrder
+    materialId?: SortOrder
+  }
+
+  export type ProductsMaterialsListRelationFilter = {
+    every?: ProductsMaterialsWhereInput
+    some?: ProductsMaterialsWhereInput
+    none?: ProductsMaterialsWhereInput
+  }
+
+  export type ProductsMaterialsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type MaterialsCountOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    image?: SortOrder
+    listed?: SortOrder
+  }
+
+  export type MaterialsAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type MaterialsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    image?: SortOrder
+    listed?: SortOrder
+  }
+
+  export type MaterialsMinOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    image?: SortOrder
+    listed?: SortOrder
+  }
+
+  export type MaterialsSumOrderByAggregateInput = {
     id?: SortOrder
   }
 
@@ -8005,6 +10719,83 @@ export namespace Prisma {
     deleteMany?: ProductsScalarWhereInput | ProductsScalarWhereInput[]
   }
 
+  export type ProductsCreateNestedOneWithoutProductsMaterialsInput = {
+    create?: XOR<ProductsCreateWithoutProductsMaterialsInput, ProductsUncheckedCreateWithoutProductsMaterialsInput>
+    connectOrCreate?: ProductsCreateOrConnectWithoutProductsMaterialsInput
+    connect?: ProductsWhereUniqueInput
+  }
+
+  export type MaterialsCreateNestedOneWithoutPrductsMaterialsInput = {
+    create?: XOR<MaterialsCreateWithoutPrductsMaterialsInput, MaterialsUncheckedCreateWithoutPrductsMaterialsInput>
+    connectOrCreate?: MaterialsCreateOrConnectWithoutPrductsMaterialsInput
+    connect?: MaterialsWhereUniqueInput
+  }
+
+  export type ProductsUpdateOneRequiredWithoutProductsMaterialsNestedInput = {
+    create?: XOR<ProductsCreateWithoutProductsMaterialsInput, ProductsUncheckedCreateWithoutProductsMaterialsInput>
+    connectOrCreate?: ProductsCreateOrConnectWithoutProductsMaterialsInput
+    upsert?: ProductsUpsertWithoutProductsMaterialsInput
+    connect?: ProductsWhereUniqueInput
+    update?: XOR<XOR<ProductsUpdateToOneWithWhereWithoutProductsMaterialsInput, ProductsUpdateWithoutProductsMaterialsInput>, ProductsUncheckedUpdateWithoutProductsMaterialsInput>
+  }
+
+  export type MaterialsUpdateOneRequiredWithoutPrductsMaterialsNestedInput = {
+    create?: XOR<MaterialsCreateWithoutPrductsMaterialsInput, MaterialsUncheckedCreateWithoutPrductsMaterialsInput>
+    connectOrCreate?: MaterialsCreateOrConnectWithoutPrductsMaterialsInput
+    upsert?: MaterialsUpsertWithoutPrductsMaterialsInput
+    connect?: MaterialsWhereUniqueInput
+    update?: XOR<XOR<MaterialsUpdateToOneWithWhereWithoutPrductsMaterialsInput, MaterialsUpdateWithoutPrductsMaterialsInput>, MaterialsUncheckedUpdateWithoutPrductsMaterialsInput>
+  }
+
+  export type ProductsMaterialsCreateNestedManyWithoutMaterialInput = {
+    create?: XOR<ProductsMaterialsCreateWithoutMaterialInput, ProductsMaterialsUncheckedCreateWithoutMaterialInput> | ProductsMaterialsCreateWithoutMaterialInput[] | ProductsMaterialsUncheckedCreateWithoutMaterialInput[]
+    connectOrCreate?: ProductsMaterialsCreateOrConnectWithoutMaterialInput | ProductsMaterialsCreateOrConnectWithoutMaterialInput[]
+    createMany?: ProductsMaterialsCreateManyMaterialInputEnvelope
+    connect?: ProductsMaterialsWhereUniqueInput | ProductsMaterialsWhereUniqueInput[]
+  }
+
+  export type ProductsMaterialsUncheckedCreateNestedManyWithoutMaterialInput = {
+    create?: XOR<ProductsMaterialsCreateWithoutMaterialInput, ProductsMaterialsUncheckedCreateWithoutMaterialInput> | ProductsMaterialsCreateWithoutMaterialInput[] | ProductsMaterialsUncheckedCreateWithoutMaterialInput[]
+    connectOrCreate?: ProductsMaterialsCreateOrConnectWithoutMaterialInput | ProductsMaterialsCreateOrConnectWithoutMaterialInput[]
+    createMany?: ProductsMaterialsCreateManyMaterialInputEnvelope
+    connect?: ProductsMaterialsWhereUniqueInput | ProductsMaterialsWhereUniqueInput[]
+  }
+
+  export type ProductsMaterialsUpdateManyWithoutMaterialNestedInput = {
+    create?: XOR<ProductsMaterialsCreateWithoutMaterialInput, ProductsMaterialsUncheckedCreateWithoutMaterialInput> | ProductsMaterialsCreateWithoutMaterialInput[] | ProductsMaterialsUncheckedCreateWithoutMaterialInput[]
+    connectOrCreate?: ProductsMaterialsCreateOrConnectWithoutMaterialInput | ProductsMaterialsCreateOrConnectWithoutMaterialInput[]
+    upsert?: ProductsMaterialsUpsertWithWhereUniqueWithoutMaterialInput | ProductsMaterialsUpsertWithWhereUniqueWithoutMaterialInput[]
+    createMany?: ProductsMaterialsCreateManyMaterialInputEnvelope
+    set?: ProductsMaterialsWhereUniqueInput | ProductsMaterialsWhereUniqueInput[]
+    disconnect?: ProductsMaterialsWhereUniqueInput | ProductsMaterialsWhereUniqueInput[]
+    delete?: ProductsMaterialsWhereUniqueInput | ProductsMaterialsWhereUniqueInput[]
+    connect?: ProductsMaterialsWhereUniqueInput | ProductsMaterialsWhereUniqueInput[]
+    update?: ProductsMaterialsUpdateWithWhereUniqueWithoutMaterialInput | ProductsMaterialsUpdateWithWhereUniqueWithoutMaterialInput[]
+    updateMany?: ProductsMaterialsUpdateManyWithWhereWithoutMaterialInput | ProductsMaterialsUpdateManyWithWhereWithoutMaterialInput[]
+    deleteMany?: ProductsMaterialsScalarWhereInput | ProductsMaterialsScalarWhereInput[]
+  }
+
+  export type ProductsMaterialsUncheckedUpdateManyWithoutMaterialNestedInput = {
+    create?: XOR<ProductsMaterialsCreateWithoutMaterialInput, ProductsMaterialsUncheckedCreateWithoutMaterialInput> | ProductsMaterialsCreateWithoutMaterialInput[] | ProductsMaterialsUncheckedCreateWithoutMaterialInput[]
+    connectOrCreate?: ProductsMaterialsCreateOrConnectWithoutMaterialInput | ProductsMaterialsCreateOrConnectWithoutMaterialInput[]
+    upsert?: ProductsMaterialsUpsertWithWhereUniqueWithoutMaterialInput | ProductsMaterialsUpsertWithWhereUniqueWithoutMaterialInput[]
+    createMany?: ProductsMaterialsCreateManyMaterialInputEnvelope
+    set?: ProductsMaterialsWhereUniqueInput | ProductsMaterialsWhereUniqueInput[]
+    disconnect?: ProductsMaterialsWhereUniqueInput | ProductsMaterialsWhereUniqueInput[]
+    delete?: ProductsMaterialsWhereUniqueInput | ProductsMaterialsWhereUniqueInput[]
+    connect?: ProductsMaterialsWhereUniqueInput | ProductsMaterialsWhereUniqueInput[]
+    update?: ProductsMaterialsUpdateWithWhereUniqueWithoutMaterialInput | ProductsMaterialsUpdateWithWhereUniqueWithoutMaterialInput[]
+    updateMany?: ProductsMaterialsUpdateManyWithWhereWithoutMaterialInput | ProductsMaterialsUpdateManyWithWhereWithoutMaterialInput[]
+    deleteMany?: ProductsMaterialsScalarWhereInput | ProductsMaterialsScalarWhereInput[]
+  }
+
+  export type ProductsMaterialsCreateNestedManyWithoutProductInput = {
+    create?: XOR<ProductsMaterialsCreateWithoutProductInput, ProductsMaterialsUncheckedCreateWithoutProductInput> | ProductsMaterialsCreateWithoutProductInput[] | ProductsMaterialsUncheckedCreateWithoutProductInput[]
+    connectOrCreate?: ProductsMaterialsCreateOrConnectWithoutProductInput | ProductsMaterialsCreateOrConnectWithoutProductInput[]
+    createMany?: ProductsMaterialsCreateManyProductInputEnvelope
+    connect?: ProductsMaterialsWhereUniqueInput | ProductsMaterialsWhereUniqueInput[]
+  }
+
   export type CategoriesCreateNestedOneWithoutProductsInput = {
     create?: XOR<CategoriesCreateWithoutProductsInput, CategoriesUncheckedCreateWithoutProductsInput>
     connectOrCreate?: CategoriesCreateOrConnectWithoutProductsInput
@@ -8016,6 +10807,13 @@ export namespace Prisma {
     connectOrCreate?: OrdersCreateOrConnectWithoutProductInput | OrdersCreateOrConnectWithoutProductInput[]
     createMany?: OrdersCreateManyProductInputEnvelope
     connect?: OrdersWhereUniqueInput | OrdersWhereUniqueInput[]
+  }
+
+  export type ProductsMaterialsUncheckedCreateNestedManyWithoutProductInput = {
+    create?: XOR<ProductsMaterialsCreateWithoutProductInput, ProductsMaterialsUncheckedCreateWithoutProductInput> | ProductsMaterialsCreateWithoutProductInput[] | ProductsMaterialsUncheckedCreateWithoutProductInput[]
+    connectOrCreate?: ProductsMaterialsCreateOrConnectWithoutProductInput | ProductsMaterialsCreateOrConnectWithoutProductInput[]
+    createMany?: ProductsMaterialsCreateManyProductInputEnvelope
+    connect?: ProductsMaterialsWhereUniqueInput | ProductsMaterialsWhereUniqueInput[]
   }
 
   export type OrdersUncheckedCreateNestedManyWithoutProductInput = {
@@ -8035,6 +10833,20 @@ export namespace Prisma {
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type ProductsMaterialsUpdateManyWithoutProductNestedInput = {
+    create?: XOR<ProductsMaterialsCreateWithoutProductInput, ProductsMaterialsUncheckedCreateWithoutProductInput> | ProductsMaterialsCreateWithoutProductInput[] | ProductsMaterialsUncheckedCreateWithoutProductInput[]
+    connectOrCreate?: ProductsMaterialsCreateOrConnectWithoutProductInput | ProductsMaterialsCreateOrConnectWithoutProductInput[]
+    upsert?: ProductsMaterialsUpsertWithWhereUniqueWithoutProductInput | ProductsMaterialsUpsertWithWhereUniqueWithoutProductInput[]
+    createMany?: ProductsMaterialsCreateManyProductInputEnvelope
+    set?: ProductsMaterialsWhereUniqueInput | ProductsMaterialsWhereUniqueInput[]
+    disconnect?: ProductsMaterialsWhereUniqueInput | ProductsMaterialsWhereUniqueInput[]
+    delete?: ProductsMaterialsWhereUniqueInput | ProductsMaterialsWhereUniqueInput[]
+    connect?: ProductsMaterialsWhereUniqueInput | ProductsMaterialsWhereUniqueInput[]
+    update?: ProductsMaterialsUpdateWithWhereUniqueWithoutProductInput | ProductsMaterialsUpdateWithWhereUniqueWithoutProductInput[]
+    updateMany?: ProductsMaterialsUpdateManyWithWhereWithoutProductInput | ProductsMaterialsUpdateManyWithWhereWithoutProductInput[]
+    deleteMany?: ProductsMaterialsScalarWhereInput | ProductsMaterialsScalarWhereInput[]
   }
 
   export type CategoriesUpdateOneWithoutProductsNestedInput = {
@@ -8067,6 +10879,20 @@ export namespace Prisma {
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type ProductsMaterialsUncheckedUpdateManyWithoutProductNestedInput = {
+    create?: XOR<ProductsMaterialsCreateWithoutProductInput, ProductsMaterialsUncheckedCreateWithoutProductInput> | ProductsMaterialsCreateWithoutProductInput[] | ProductsMaterialsUncheckedCreateWithoutProductInput[]
+    connectOrCreate?: ProductsMaterialsCreateOrConnectWithoutProductInput | ProductsMaterialsCreateOrConnectWithoutProductInput[]
+    upsert?: ProductsMaterialsUpsertWithWhereUniqueWithoutProductInput | ProductsMaterialsUpsertWithWhereUniqueWithoutProductInput[]
+    createMany?: ProductsMaterialsCreateManyProductInputEnvelope
+    set?: ProductsMaterialsWhereUniqueInput | ProductsMaterialsWhereUniqueInput[]
+    disconnect?: ProductsMaterialsWhereUniqueInput | ProductsMaterialsWhereUniqueInput[]
+    delete?: ProductsMaterialsWhereUniqueInput | ProductsMaterialsWhereUniqueInput[]
+    connect?: ProductsMaterialsWhereUniqueInput | ProductsMaterialsWhereUniqueInput[]
+    update?: ProductsMaterialsUpdateWithWhereUniqueWithoutProductInput | ProductsMaterialsUpdateWithWhereUniqueWithoutProductInput[]
+    updateMany?: ProductsMaterialsUpdateManyWithWhereWithoutProductInput | ProductsMaterialsUpdateManyWithWhereWithoutProductInput[]
+    deleteMany?: ProductsMaterialsScalarWhereInput | ProductsMaterialsScalarWhereInput[]
   }
 
   export type OrdersUncheckedUpdateManyWithoutProductNestedInput = {
@@ -8377,6 +11203,7 @@ export namespace Prisma {
     description?: string | null
     price?: number | null
     image: string
+    ProductsMaterials?: ProductsMaterialsCreateNestedManyWithoutProductInput
     orders?: OrdersCreateNestedManyWithoutProductInput
   }
 
@@ -8387,6 +11214,7 @@ export namespace Prisma {
     description?: string | null
     price?: number | null
     image: string
+    ProductsMaterials?: ProductsMaterialsUncheckedCreateNestedManyWithoutProductInput
     orders?: OrdersUncheckedCreateNestedManyWithoutProductInput
   }
 
@@ -8428,6 +11256,167 @@ export namespace Prisma {
     categoriesId?: IntNullableFilter<"Products"> | number | null
   }
 
+  export type ProductsCreateWithoutProductsMaterialsInput = {
+    listed?: boolean
+    title: string
+    description?: string | null
+    price?: number | null
+    image: string
+    Categories?: CategoriesCreateNestedOneWithoutProductsInput
+    orders?: OrdersCreateNestedManyWithoutProductInput
+  }
+
+  export type ProductsUncheckedCreateWithoutProductsMaterialsInput = {
+    id?: number
+    listed?: boolean
+    title: string
+    description?: string | null
+    price?: number | null
+    image: string
+    categoriesId?: number | null
+    orders?: OrdersUncheckedCreateNestedManyWithoutProductInput
+  }
+
+  export type ProductsCreateOrConnectWithoutProductsMaterialsInput = {
+    where: ProductsWhereUniqueInput
+    create: XOR<ProductsCreateWithoutProductsMaterialsInput, ProductsUncheckedCreateWithoutProductsMaterialsInput>
+  }
+
+  export type MaterialsCreateWithoutPrductsMaterialsInput = {
+    title: string
+    image: string
+    listed?: boolean
+  }
+
+  export type MaterialsUncheckedCreateWithoutPrductsMaterialsInput = {
+    id?: number
+    title: string
+    image: string
+    listed?: boolean
+  }
+
+  export type MaterialsCreateOrConnectWithoutPrductsMaterialsInput = {
+    where: MaterialsWhereUniqueInput
+    create: XOR<MaterialsCreateWithoutPrductsMaterialsInput, MaterialsUncheckedCreateWithoutPrductsMaterialsInput>
+  }
+
+  export type ProductsUpsertWithoutProductsMaterialsInput = {
+    update: XOR<ProductsUpdateWithoutProductsMaterialsInput, ProductsUncheckedUpdateWithoutProductsMaterialsInput>
+    create: XOR<ProductsCreateWithoutProductsMaterialsInput, ProductsUncheckedCreateWithoutProductsMaterialsInput>
+    where?: ProductsWhereInput
+  }
+
+  export type ProductsUpdateToOneWithWhereWithoutProductsMaterialsInput = {
+    where?: ProductsWhereInput
+    data: XOR<ProductsUpdateWithoutProductsMaterialsInput, ProductsUncheckedUpdateWithoutProductsMaterialsInput>
+  }
+
+  export type ProductsUpdateWithoutProductsMaterialsInput = {
+    listed?: BoolFieldUpdateOperationsInput | boolean
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    price?: NullableFloatFieldUpdateOperationsInput | number | null
+    image?: StringFieldUpdateOperationsInput | string
+    Categories?: CategoriesUpdateOneWithoutProductsNestedInput
+    orders?: OrdersUpdateManyWithoutProductNestedInput
+  }
+
+  export type ProductsUncheckedUpdateWithoutProductsMaterialsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    listed?: BoolFieldUpdateOperationsInput | boolean
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    price?: NullableFloatFieldUpdateOperationsInput | number | null
+    image?: StringFieldUpdateOperationsInput | string
+    categoriesId?: NullableIntFieldUpdateOperationsInput | number | null
+    orders?: OrdersUncheckedUpdateManyWithoutProductNestedInput
+  }
+
+  export type MaterialsUpsertWithoutPrductsMaterialsInput = {
+    update: XOR<MaterialsUpdateWithoutPrductsMaterialsInput, MaterialsUncheckedUpdateWithoutPrductsMaterialsInput>
+    create: XOR<MaterialsCreateWithoutPrductsMaterialsInput, MaterialsUncheckedCreateWithoutPrductsMaterialsInput>
+    where?: MaterialsWhereInput
+  }
+
+  export type MaterialsUpdateToOneWithWhereWithoutPrductsMaterialsInput = {
+    where?: MaterialsWhereInput
+    data: XOR<MaterialsUpdateWithoutPrductsMaterialsInput, MaterialsUncheckedUpdateWithoutPrductsMaterialsInput>
+  }
+
+  export type MaterialsUpdateWithoutPrductsMaterialsInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    listed?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type MaterialsUncheckedUpdateWithoutPrductsMaterialsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    listed?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type ProductsMaterialsCreateWithoutMaterialInput = {
+    product: ProductsCreateNestedOneWithoutProductsMaterialsInput
+  }
+
+  export type ProductsMaterialsUncheckedCreateWithoutMaterialInput = {
+    id?: number
+    productId: number
+  }
+
+  export type ProductsMaterialsCreateOrConnectWithoutMaterialInput = {
+    where: ProductsMaterialsWhereUniqueInput
+    create: XOR<ProductsMaterialsCreateWithoutMaterialInput, ProductsMaterialsUncheckedCreateWithoutMaterialInput>
+  }
+
+  export type ProductsMaterialsCreateManyMaterialInputEnvelope = {
+    data: ProductsMaterialsCreateManyMaterialInput | ProductsMaterialsCreateManyMaterialInput[]
+  }
+
+  export type ProductsMaterialsUpsertWithWhereUniqueWithoutMaterialInput = {
+    where: ProductsMaterialsWhereUniqueInput
+    update: XOR<ProductsMaterialsUpdateWithoutMaterialInput, ProductsMaterialsUncheckedUpdateWithoutMaterialInput>
+    create: XOR<ProductsMaterialsCreateWithoutMaterialInput, ProductsMaterialsUncheckedCreateWithoutMaterialInput>
+  }
+
+  export type ProductsMaterialsUpdateWithWhereUniqueWithoutMaterialInput = {
+    where: ProductsMaterialsWhereUniqueInput
+    data: XOR<ProductsMaterialsUpdateWithoutMaterialInput, ProductsMaterialsUncheckedUpdateWithoutMaterialInput>
+  }
+
+  export type ProductsMaterialsUpdateManyWithWhereWithoutMaterialInput = {
+    where: ProductsMaterialsScalarWhereInput
+    data: XOR<ProductsMaterialsUpdateManyMutationInput, ProductsMaterialsUncheckedUpdateManyWithoutMaterialInput>
+  }
+
+  export type ProductsMaterialsScalarWhereInput = {
+    AND?: ProductsMaterialsScalarWhereInput | ProductsMaterialsScalarWhereInput[]
+    OR?: ProductsMaterialsScalarWhereInput[]
+    NOT?: ProductsMaterialsScalarWhereInput | ProductsMaterialsScalarWhereInput[]
+    id?: IntFilter<"ProductsMaterials"> | number
+    productId?: IntFilter<"ProductsMaterials"> | number
+    materialId?: IntFilter<"ProductsMaterials"> | number
+  }
+
+  export type ProductsMaterialsCreateWithoutProductInput = {
+    material: MaterialsCreateNestedOneWithoutPrductsMaterialsInput
+  }
+
+  export type ProductsMaterialsUncheckedCreateWithoutProductInput = {
+    id?: number
+    materialId: number
+  }
+
+  export type ProductsMaterialsCreateOrConnectWithoutProductInput = {
+    where: ProductsMaterialsWhereUniqueInput
+    create: XOR<ProductsMaterialsCreateWithoutProductInput, ProductsMaterialsUncheckedCreateWithoutProductInput>
+  }
+
+  export type ProductsMaterialsCreateManyProductInputEnvelope = {
+    data: ProductsMaterialsCreateManyProductInput | ProductsMaterialsCreateManyProductInput[]
+  }
+
   export type CategoriesCreateWithoutProductsInput = {
     name: string
   }
@@ -8460,6 +11449,22 @@ export namespace Prisma {
 
   export type OrdersCreateManyProductInputEnvelope = {
     data: OrdersCreateManyProductInput | OrdersCreateManyProductInput[]
+  }
+
+  export type ProductsMaterialsUpsertWithWhereUniqueWithoutProductInput = {
+    where: ProductsMaterialsWhereUniqueInput
+    update: XOR<ProductsMaterialsUpdateWithoutProductInput, ProductsMaterialsUncheckedUpdateWithoutProductInput>
+    create: XOR<ProductsMaterialsCreateWithoutProductInput, ProductsMaterialsUncheckedCreateWithoutProductInput>
+  }
+
+  export type ProductsMaterialsUpdateWithWhereUniqueWithoutProductInput = {
+    where: ProductsMaterialsWhereUniqueInput
+    data: XOR<ProductsMaterialsUpdateWithoutProductInput, ProductsMaterialsUncheckedUpdateWithoutProductInput>
+  }
+
+  export type ProductsMaterialsUpdateManyWithWhereWithoutProductInput = {
+    where: ProductsMaterialsScalarWhereInput
+    data: XOR<ProductsMaterialsUpdateManyMutationInput, ProductsMaterialsUncheckedUpdateManyWithoutProductInput>
   }
 
   export type CategoriesUpsertWithoutProductsInput = {
@@ -8570,6 +11575,7 @@ export namespace Prisma {
     description?: string | null
     price?: number | null
     image: string
+    ProductsMaterials?: ProductsMaterialsCreateNestedManyWithoutProductInput
     Categories?: CategoriesCreateNestedOneWithoutProductsInput
   }
 
@@ -8581,6 +11587,7 @@ export namespace Prisma {
     price?: number | null
     image: string
     categoriesId?: number | null
+    ProductsMaterials?: ProductsMaterialsUncheckedCreateNestedManyWithoutProductInput
   }
 
   export type ProductsCreateOrConnectWithoutOrdersInput = {
@@ -8631,6 +11638,7 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableFloatFieldUpdateOperationsInput | number | null
     image?: StringFieldUpdateOperationsInput | string
+    ProductsMaterials?: ProductsMaterialsUpdateManyWithoutProductNestedInput
     Categories?: CategoriesUpdateOneWithoutProductsNestedInput
   }
 
@@ -8642,6 +11650,7 @@ export namespace Prisma {
     price?: NullableFloatFieldUpdateOperationsInput | number | null
     image?: StringFieldUpdateOperationsInput | string
     categoriesId?: NullableIntFieldUpdateOperationsInput | number | null
+    ProductsMaterials?: ProductsMaterialsUncheckedUpdateManyWithoutProductNestedInput
   }
 
   export type ProductsCreateManyCategoriesInput = {
@@ -8659,6 +11668,7 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableFloatFieldUpdateOperationsInput | number | null
     image?: StringFieldUpdateOperationsInput | string
+    ProductsMaterials?: ProductsMaterialsUpdateManyWithoutProductNestedInput
     orders?: OrdersUpdateManyWithoutProductNestedInput
   }
 
@@ -8669,6 +11679,7 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableFloatFieldUpdateOperationsInput | number | null
     image?: StringFieldUpdateOperationsInput | string
+    ProductsMaterials?: ProductsMaterialsUncheckedUpdateManyWithoutProductNestedInput
     orders?: OrdersUncheckedUpdateManyWithoutProductNestedInput
   }
 
@@ -8681,10 +11692,48 @@ export namespace Prisma {
     image?: StringFieldUpdateOperationsInput | string
   }
 
+  export type ProductsMaterialsCreateManyMaterialInput = {
+    id?: number
+    productId: number
+  }
+
+  export type ProductsMaterialsUpdateWithoutMaterialInput = {
+    product?: ProductsUpdateOneRequiredWithoutProductsMaterialsNestedInput
+  }
+
+  export type ProductsMaterialsUncheckedUpdateWithoutMaterialInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    productId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ProductsMaterialsUncheckedUpdateManyWithoutMaterialInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    productId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ProductsMaterialsCreateManyProductInput = {
+    id?: number
+    materialId: number
+  }
+
   export type OrdersCreateManyProductInput = {
     id?: number
     orderId: number
     quantity?: number
+  }
+
+  export type ProductsMaterialsUpdateWithoutProductInput = {
+    material?: MaterialsUpdateOneRequiredWithoutPrductsMaterialsNestedInput
+  }
+
+  export type ProductsMaterialsUncheckedUpdateWithoutProductInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    materialId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ProductsMaterialsUncheckedUpdateManyWithoutProductInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    materialId?: IntFieldUpdateOperationsInput | number
   }
 
   export type OrdersUpdateWithoutProductInput = {

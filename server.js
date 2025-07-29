@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const port = process.env.SERVER_PORT || 3000; // Use environment variable or default to 3000
-const publicDirs = [ process.env.IMAGES_DIR || "./uploaded" ]; // Use environment variables or default to 'public' and 'public2'
+const publicDirs = [process.env.IMAGES_DIR || "./uploaded"]; // Use environment variables or default to 'public' and 'public2'
 const mainIndex = `${publicDirs[1]}/index.html`;
 const bodyParser = require("body-parser");
 const multer = require("multer");
@@ -9,8 +9,6 @@ const fs = require("fs");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
-
-
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -37,14 +35,14 @@ const prisma = new PrismaClient();
 app.use(bodyParser.json(), cookieParser());
 
 // Enable CORS (Cross-Origin Resource Sharing) - Allowing requests from the frontend
-const cors = require('cors');
+const cors = require("cors");
 
 // CORS setup to accept all routes from specific origin
 const corsOptions = {
   origin: true, // Change to the origin you want to accept, e.g., your frontend URL or IP
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],  // Allow specific methods
-  allowedHeaders: ['Content-Type', 'Authorization'], // Allow headers
-  credentials: true  // If you're using cookies or authentication tokens
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allow specific methods
+  allowedHeaders: ["Content-Type", "Authorization"], // Allow headers
+  credentials: true, // If you're using cookies or authentication tokens
 };
 
 // Apply CORS to all routes
@@ -297,7 +295,15 @@ app.get("/api/products", async (req, res) => {
       where: {
         listed: true,
       },
+      include: {
+        ProductsMaterials: {
+          include: {
+            material: true,
+          },
+        },
+      },
     });
+    //Products.map((product) => console.log(product.ProductsMaterials));
 
     res.status(200).json(Products);
   } catch (err) {
@@ -327,9 +333,68 @@ app.post("/api/products/:id", verify, async (req, res) => {
 // upload Products
 app.post("/api/products", verify, async (req, res) => {
   try {
-    const Product = req.body;
+    const Product = req.body.product;
     console.log(Product);
     const response = await prisma.products.create({ data: Product });
+    const Materials = req.body.materials;
+    if (Materials[0]) {
+      const Records = Materials.map((material) => ({
+        productId: response.id,
+        materialId: material.id,
+      }));
+      console.log(Records);
+      const response2 = await prisma.productsMaterials.createMany({
+        data: Records,
+      });
+      console.log(response2);
+    }
+    res.status(200).json(response);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+//get Materials
+app.get("/api/materials", async (req, res) => {
+  try {
+    const Materials = await prisma.materials.findMany({
+      where: {
+        listed: true,
+      },
+    });
+
+    res.status(200).json(Materials);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+//delete Material
+app.post("/api/materials/:id", verify, async (req, res) => {
+  const MaterialId = req.params.id;
+  try {
+    console.log("deleting: " + MaterialId);
+    await prisma.materials.update({
+      where: { id: Number(MaterialId) },
+      data: {
+        listed: false,
+      },
+    });
+    res.status(200).json("deleted");
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+// upload Material
+app.post("/api/materials", verify, async (req, res) => {
+  try {
+    const Material = req.body;
+    console.log(Material);
+    const response = await prisma.materials.create({ data: Material });
 
     res.status(200).json(response);
   } catch (err) {
@@ -347,12 +412,12 @@ const path = require("path");
 const { setTimeout } = require("timers");
 
 publicDirs.map((publicDir) => {
-  app.use(express.static( publicDir));
+  app.use(express.static(publicDir));
 });
 
 app.get("*", (req, res) => {
   console.log(req.url);
- // res.sendFile(path.join(__dirname, mainIndex));
+  // res.sendFile(path.join(__dirname, mainIndex));
 });
 
 app.listen(
